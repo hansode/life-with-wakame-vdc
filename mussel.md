@@ -115,12 +115,18 @@ musselではbashのcompletion(補完)機能を利用した入力支援機能を�
 
 ### `mussel-completion.bash`のインストール
 
-※※※TODO: まだmasterにmergeしてないので、ダウンロード元等を書いてない※※※
+`mussel-completion.bash`を`~/.mussel-completion.bash`に配置します。
+
+```
+$ curl -fsSkL \
+ https://raw.githubusercontent.com/axsh/wakame-vdc/feature-mussel-completion/client/mussel/completion/mussel-completion.bash \
+ -o ~/.mussel-completion.bash
+```
 
 `mussel-completion.bash`を`~/.mussel-completion.bash`に配置します。次に`.bashrc`を修正し、以下の内容を追加します。
 
 ```
-source ~/.git-completion.bash
+source ~/.mussel-completion.bash
 ```
 
 ### 変更内容の反映
@@ -220,42 +226,13 @@ $ MUSSEL_RC=/path/to/musselrc mussel.sh <resource> <command> ...
 
 ## vdc1box環境の構築
 
-Wakame-vdcのデモ用にvdc1boxと言う全部入り環境がvmdk形式で提供されています。vmdk形式は、VirtualBoxかVMware Playerで実行可能です。詳しい設定に関しては、[Demo Image](http://wakameusersgroup.org/demo_image.html)を参考に構築して下さい。
+Wakame-vdcのデモ用にvdc1boxと言う全部入り環境がvmdk形式で提供されています。vmdk形式は、VirtualBoxかVMware Playerで実行可能です。
 
-## vdc-hva work-around
+ダウンロードURL：
 
-※別ノードからAPI呼び出しする場合は、不要です。
++ [http://dlc.wakame.axsh.jp/demo/1box/vmdk/1box-openvz.netfilter.x86_64.vmdk.20150422145414git18a94db.zip](http://dlc.wakame.axsh.jp/demo/1box/vmdk/1box-openvz.netfilter.x86_64.vmdk.20150422145414git18a94db.zip)
 
-vdc1box環境の初期設定では、ホストからインスタンスへの接続は許可されていません。本手順では接続経路を確保します。その為には`/etc/wakame-vdc/hva.conf`を修正する必要があります。
-
-```
-$ sudo vi /etc/wakame-vdc/hva.conf
-```
-
-下記内容を追記します。
-
-```
-config.logging_service_host_ip = '10.0.2.15'
-```
-
-内容を反映する為に`vdc-hva`を再起動します。
-
-```
-$ sudo initctl stop vdc-hva
-$ sudo initctl start vdc-hva RUN=yes
-```
-
-実行結果例：
-
-> ```
-> $ sudo initctl stop vdc-hva
-> vdc-hva stop/waiting
-> ```
-
-> ```
-> $ sudo initctl start vdc-hva RUN=yes
-> vdc-hva start/running, process 9570
-> ```
+詳しい設定に関しては、[Demo Image](http://wakameusersgroup.org/demo_image.html)を参考に構築して下さい。
 
 ## `~/.musselrc`の作成
 
