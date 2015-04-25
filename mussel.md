@@ -222,41 +222,6 @@ $ MUSSEL_RC=/path/to/musselrc mussel.sh <resource> <command> ...
 
 Wakame-vdcのデモ用にvdc1boxと言う全部入り環境がvmdk形式で提供されています。vmdk形式は、VirtualBoxかVMware Playerで実行可能です。詳しい設定に関しては、[Demo Image](http://wakameusersgroup.org/demo_image.html)を参考に構築して下さい。
 
-## vdc-hva work-around
-
-※別ノードからAPI呼び出しする場合は、不要です。
-
-vdc1box環境の初期設定では、ホストからインスタンスへの接続は許可されていません。本手順では接続経路を確保します。その為には`/etc/wakame-vdc/hva.conf`を修正する必要があります。
-
-```
-$ sudo vi /etc/wakame-vdc/hva.conf
-```
-
-下記内容を追記します。
-
-```
-config.logging_service_host_ip = '10.0.2.15'
-```
-
-内容を反映する為に`vdc-hva`を再起動します。
-
-```
-$ sudo initctl stop vdc-hva
-$ sudo initctl start vdc-hva RUN=yes
-```
-
-実行結果例：
-
-> ```
-> $ sudo initctl stop vdc-hva
-> vdc-hva stop/waiting
-> ```
-
-> ```
-> $ sudo initctl start vdc-hva RUN=yes
-> vdc-hva start/running, process 9570
-> ```
-
 ## `~/.musselrc`の作成
 
 vdc1box環境用に`~/.musselrc`を作成します。
