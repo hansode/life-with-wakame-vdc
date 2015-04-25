@@ -115,12 +115,18 @@ musselではbashのcompletion(補完)機能を利用した入力支援機能を�
 
 ### `mussel-completion.bash`のインストール
 
-※※※TODO: まだmasterにmergeしてないので、ダウンロード元等を書いてない※※※
+`mussel-completion.bash`を`~/.mussel-completion.bash`に配置します。
+
+```
+$ curl -fsSkL \
+ https://raw.githubusercontent.com/axsh/wakame-vdc/feature-mussel-completion/client/mussel/completion/mussel-completion.bash \
+ -o ~/.mussel-completion.bash
+```
 
 `mussel-completion.bash`を`~/.mussel-completion.bash`に配置します。次に`.bashrc`を修正し、以下の内容を追加します。
 
 ```
-source ~/.git-completion.bash
+source ~/.mussel-completion.bash
 ```
 
 ### 変更内容の反映
