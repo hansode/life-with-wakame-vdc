@@ -66,7 +66,7 @@ $ mussel <resource> <command> --name value --name2 value2
 
 ## 環境変数`PATH`の設定
 
-Wakame-vdcをRPMでインストールすると、`mussel`は`/opt/axsh/wakame-vdc/client/mussel/bin/mussel`に配置されます。毎回フルパス指定するのは、作業する上で不便です。そこで、環境変数`PATH`に`/opt/axsh/wakame-vdc/client/mussel`を追加します。
+Wakame-vdcをRPMでインストールすると、`mussel`は`/usr/bin/mussel`に配置されます。毎回フルパス指定するのは、作業する上で不便です。そこで、環境変数`PATH`に`/usr/bin/mussel`を追加します。
 
 ### `.bashrc`の修正
 
@@ -79,7 +79,7 @@ $ vi ~/.bashrc
 下記内容を追記します。
 
 ```
-PATH=${PATH}:/opt/axsh/wakame-vdc/client/bin/mussel
+PATH=${PATH}:/usr/bin/mussel
 ```
 
 ### 変更内容の反映
@@ -104,7 +104,7 @@ $ type -P mussel
 
 > ```
 > $ type -P mussel
-> /opt/axsh/wakame-vdc/client/mussel/bin/mussel
+> /usr/bin/mussel
 > ```
 
 これで環境変数`PATH`の設定は完了です。
