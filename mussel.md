@@ -1638,43 +1638,7 @@ $ mussel load_balancer destroy lb-z3261dc9
 > ```
 > $ mussel load_balancer destroy lb-z3261dc9
 > ---
-> :id: lb-z3261dc9
-> :uuid: lb-z3261dc9
-> :account_id: a-tutorial
-> :instance_id: i-mslqyv0i
-> :instance_protocol: http
-> :instance_port: 80
-> :balance_algorithm: leastconn
-> :cookie_name:
-> :description: ''
-> :private_key: ''
-> :public_key: ''
-> :created_at: 2015-04-08 07:12:31.000000000 Z
-> :updated_at: 2015-04-08 07:12:31.000000000 Z
-> :deleted_at:
-> :display_name:
-> :allow_list:
-> - 0.0.0.0
-> :httpchk_path: ''
-> :state: running
-> :status: online
-> :target_vifs: []
-> :vif:
-> - :vif_id: vif-yu39lp8o
->   :vif_index: 0
->   :network_id: nw-demo1
->   :ipv4:
->     :address: 10.0.2.100
->     :nat_address:
-> - :vif_id: vif-h9lzads6
->   :vif_index: 1
->   :network_id: nw-demo8
->   :ipv4:
->     :address: 10.1.0.10
->     :nat_address:
-> :inbounds:
-> - :port: 80
->   :protocol: http
+> - lb-z3261dc9
 > ```
 
 #### ここまでのまとめ
