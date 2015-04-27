@@ -185,7 +185,7 @@ Wakame-vdcのデモ用にvdc1boxと言う全部入り環境がvmdk形式で提�
 
 ダウンロードURL：
 
-+ [http://dlc.wakame.axsh.jp/demo/1box/vmdk/1box-openvz.netfilter.x86_64.vmdk.20150422145414git18a94db.zip](http://dlc.wakame.axsh.jp/demo/1box/vmdk/1box-openvz.netfilter.x86_64.vmdk.20150422145414git18a94db.zip) ※約2.0Gあります
++ [http://dlc.wakame.axsh.jp/demo/1box/vmdk/1box-openvz.netfilter.x86_64.vmdk.20150427171952gited56eff.zip](http://dlc.wakame.axsh.jp/demo/1box/vmdk/1box-openvz.netfilter.x86_64.vmdk.20150427171952gited56eff.zip) ※約2.0Gあります
 
 詳しい設定に関しては、[Demo Image](http://wakameusersgroup.org/demo_image.html)を参考に構築して下さい。
 
