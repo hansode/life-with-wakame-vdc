@@ -2597,43 +2597,7 @@ $ mussel load_balancer destroy lb-wk919s67
 > ```
 > $ mussel load_balancer destroy lb-wk919s67
 > ---
-> :id: lb-wk919s67
-> :uuid: lb-wk919s67
-> :account_id: a-tutorial
-> :instance_id: i-rxjmir5r
-> :instance_protocol: http
-> :instance_port: 80
-> :balance_algorithm: leastconn
-> :cookie_name:
-> :description: ''
-> :private_key: ''
-> :public_key: ''
-> :created_at: 2015-04-08 09:57:00.000000000 Z
-> :updated_at: 2015-04-08 09:57:00.000000000 Z
-> :deleted_at:
-> :display_name:
-> :allow_list:
-> - 0.0.0.0
-> :httpchk_path: ''
-> :state: running
-> :status: online
-> :target_vifs: []
-> :vif:
-> - :vif_id: vif-35i0pxm6
->   :vif_index: 0
->   :network_id: nw-demo1
->   :ipv4:
->     :address: 10.0.2.102
->     :nat_address:
-> - :vif_id: vif-dfgm6s4e
->   :vif_index: 1
->   :network_id: nw-demo8
->   :ipv4:
->     :address: 10.1.0.10
->     :nat_address:
-> :inbounds:
-> - :port: 80
->   :protocol: http
+> - lb-wk919s67
 > ```
 
 #### ここまでのまとめ
