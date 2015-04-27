@@ -32,7 +32,7 @@ HTTP通信においては、十分シンプルです。しかし、「Wakame-vdc
 musselによるAPI呼び出し例：
 
 ```
-$ mussel.sh instance create \
+$ mussel instance create \
  --cpu-cores   1 \
  --hypervisor  openvz \
  --image-id    wmi-lbnode1d64 \
@@ -54,60 +54,15 @@ musselの使い方を簡単に説明します。musselは、引数を2つ以上�
 最小構成：
 
 ```
-$ mussel.sh <resource> <command>
+$ mussel <resource> <command>
 ```
 
 オプション指定時：
 
 ```
-$ mussel.sh <resource> <command> --name value
-$ mussel.sh <resource> <command> --name value --name2 value2
+$ mussel <resource> <command> --name value
+$ mussel <resource> <command> --name value --name2 value2
 ```
-
-## 環境変数`PATH`の設定
-
-Wakame-vdcをRPMでインストールすると、`mussel.sh`は`/opt/axsh/wakame-vdc/client/mussel/mussel.sh`に配置されます。毎回フルパス指定するのは、作業する上で不便です。そこで、環境変数`PATH`に`/opt/axsh/wakame-vdc/client/mussel`を追加します。
-
-### `.bashrc`の修正
-
-bashの場合、`.bashrc`を修正します。
-
-```
-$ vi ~/.bashrc
-```
-
-下記内容を追記します。
-
-```
-PATH=${PATH}:/opt/axsh/wakame-vdc/client/mussel
-```
-
-### 変更内容の反映
-
-変更した内容を現在のシェルに反映します。
-
-```
-$ source ~/.bashrc
-```
-
-正しく`PATH`が設定されていれば、フルパス指定せず`mussel.sh`だけで実行可能です。
-
-### 変更内容の反映
-
-正しく設定されている事を`type`コマンドで確認します。
-
-```
-$ type -P mussel.sh
-```
-
-実行結果例：
-
-> ```
-> $ type -P mussel.sh
-> /opt/axsh/wakame-vdc/client/mussel/mussel.sh
-> ```
-
-これで環境変数`PATH`の設定は完了です。
 
 ## `mussel-completion.bash`による入力支援
 
@@ -149,23 +104,23 @@ $ complete
 
 > ```
 > $ complete
-> complete -F _mussel.sh mussel.sh
+> complete -F _mussel mussel
 > ```
 
-これにより`mussel.sh`操作効率が向上します。
+これにより`mussel`操作効率が向上します。
 
 ### completionを試す
 
-試しに、`mussel.sh`の後にTABキーを入力してみて下さい。
+試しに、`mussel`の後にTABキーを入力してみて下さい。
 
 ```
-$ mussel.sh #ここでTABを入力
+$ mussel #ここでTABを入力
 ```
 
 TABキーをすると、第一引数の候補が表示されます。
 
 > ```
-> $ mussel.sh
+> $ mussel
 > alarm                instance             network_vif
 > backup_object        instance_monitoring  network_vif_monitor
 > backup_storage       ip_handle            security_group
@@ -211,13 +166,13 @@ $ vi /path/to/musselrc
 
 ```
 $ export MUSSEL_RC=/path/to/musselrc
-$ mussel.sh <resource> <command> ...
+$ mussel <resource> <command> ...
 ```
 
 実行時に一時反映：
 
 ```
-$ MUSSEL_RC=/path/to/musselrc mussel.sh <resource> <command> ...
+$ MUSSEL_RC=/path/to/musselrc mussel <resource> <command> ...
 ```
 
 環境や利用状況に合わせ、臨機応変に使い分けられます。
@@ -247,7 +202,7 @@ DCMGR_HOST=127.0.0.1
 account_id=a-tutorial
 ```
 
-以上で`mussel.sh`を使う準備が整いました。
+以上で`mussel`を使う準備が整いました。
 
 
 # musselチュートリアル
@@ -310,13 +265,13 @@ APIに登録するのは、公開鍵です。秘密鍵は、インスタンス�
 公開鍵`mykeypair.pub`をAPIに登録します。
 
 ```
-$ mussel.sh ssh_key_pair create --public-key mykeypair.pub
+$ mussel ssh_key_pair create --public-key mykeypair.pub
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh ssh_key_pair create --public-key mykeypair.pub
+> $ mussel ssh_key_pair create --public-key mykeypair.pub
 > ---
 > :id: ssh-ruekc3bs
 > :account_id: a-tutorial
@@ -340,13 +295,13 @@ $ mussel.sh ssh_key_pair create --public-key mykeypair.pub
 公開鍵が正常に登録された事を確認します。実行時にuuidを指定します。
 
 ```
-$ mussel.sh ssh_key_pair show ssh-ruekc3bs
+$ mussel ssh_key_pair show ssh-ruekc3bs
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh ssh_key_pair show ssh-ruekc3bs
+> $ mussel ssh_key_pair show ssh-ruekc3bs
 > ---
 > :id: ssh-ruekc3bs
 > :account_id: a-tutorial
@@ -396,13 +351,13 @@ tcp:80,80,ip4:0.0.0.0/0
 作成したルールファイルを基に、セキュリティグループを登録します。
 
 ```
-$ mussel.sh security_group create --rule sgrule.txt
+$ mussel security_group create --rule sgrule.txt
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh security_group create --rule sgrule.txt
+> $ mussel security_group create --rule sgrule.txt
 > ---
 > :id: sg-nhrd602s
 > :account_id: a-tutorial
@@ -442,13 +397,13 @@ $ mussel.sh security_group create --rule sgrule.txt
 公開鍵が正常に登録された事を確認します。実行時にuuidを指定します。
 
 ```
-$ mussel.sh security_group show sg-nhrd602s
+$ mussel security_group show sg-nhrd602s
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh security_group show sg-nhrd602s
+> $ mussel security_group show sg-nhrd602s
 > ---
 > :id: sg-nhrd602s
 > :account_id: a-tutorial
@@ -492,7 +447,7 @@ $ mussel.sh security_group show sg-nhrd602s
 デモ用マシンイメージのuuidは`wmi-centos1d64`です。
 
 ```
-$ mussel.sh image show wmi-centos1d64
+$ mussel image show wmi-centos1d64
 ```
 
 なお、デモ用マシンイメージの所有者は管理者なので、一般アカウントには閲覧権限がありません。管理権限が無い場合は、以下の様に存在しないリソースとして扱われます。今回は一般アカウントで操作しているので、閲覧出来ません。詳細情報を閲覧出来ませんが、インスタンス作成時に指定する事は可能です。
@@ -500,7 +455,7 @@ $ mussel.sh image show wmi-centos1d64
 実際の実行結果例：
 
 > ```
-> $ mussel.sh image show wmi-centos1d64
+> $ mussel image show wmi-centos1d64
 > curl: (22) The requested URL returned error: 404 Not Found
 > ```
 
@@ -509,7 +464,7 @@ $ mussel.sh image show wmi-centos1d64
 実行結果例：
 
 > ```
-> $ mussel.sh image show wmi-centos1d64
+> $ mussel image show wmi-centos1d64
 > ---
 > :id: wmi-centos1d64
 > :account_id: a-shpoolxx
@@ -549,7 +504,7 @@ $ mussel.sh image show wmi-centos1d64
 ネットワーク情報は特殊なリソースの1つです。管理者権限を必要とします。
 
 ```
-$ mussel.sh network show nw-demo1
+$ mussel network show nw-demo1
 ```
 
 管理権限が無い場合は、以下の様に存在しないリソースとして扱われます。今回は一般アカウントで操作しているので、閲覧出来ません。詳細情報を閲覧出来ませんが、インスタンス作成時に指定する事は可能です。
@@ -557,7 +512,7 @@ $ mussel.sh network show nw-demo1
 実際の実行結果例：
 
 > ```
-> $ mussel.sh network show nw-demo1
+> $ mussel network show nw-demo1
 > curl: (22) The requested URL returned error: 404 Not Found
 > ```
 
@@ -566,7 +521,7 @@ $ mussel.sh network show nw-demo1
 実行結果例：
 
 > ```
-> $ mussel.sh network show nw-demo1
+> $ mussel network show nw-demo1
 > ---
 > :id: nw-demo1
 > :account_id: a-shpoolxx
@@ -688,7 +643,7 @@ $ vi vifs.txt
 いよいよインスタンス作成です。作成時にはuuidと共に、インスタンスのスペック用パラメタを指定します。
 
 ```
-$ mussel.sh instance create \
+$ mussel instance create \
  --hypervisor openvz \
  --cpu-cores 1 \
  --image-id wmi-centos1d64 \
@@ -706,7 +661,7 @@ $ mussel.sh instance create \
 実行結果例：
 
 > ```
-> $ mussel.sh instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
 > ---
 > :id: i-31zmj9fr
 > :account_id: a-tutorial
@@ -759,13 +714,13 @@ $ mussel.sh instance create \
 インスタンス作成命令から一定時間（2～3数秒）経過すると、スケジューラがIPアドレスを決定します。決定後はインスタンスのIPアドレスを確認出来ます。インスタンスの情報を確認・表示します。
 
 ```
-$ mussel.sh instance show i-31zmj9fr
+$ mussel instance show i-31zmj9fr
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance show i-31zmj9fr
+> $ mussel instance show i-31zmj9fr
 > ---
 > :id: i-31zmj9fr
 > :account_id: a-tutorial
@@ -859,13 +814,13 @@ $ ssh root@10.0.2.100 -i mykeypair
 作成したインスタンスを破棄します。
 
 ```
-$ mussel.sh instance destroy i-31zmj9fr
+$ mussel instance destroy i-31zmj9fr
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance destroy i-31zmj9fr
+> $ mussel instance destroy i-31zmj9fr
 > ---
 > - i-31zmj9fr
 > ```
@@ -885,7 +840,7 @@ poweroff/poweronするには、対象となるインスタンスが必要です�
 ##### 1: インスタンスの作成
 
 ```
-$ mussel.sh instance create \
+$ mussel instance create \
  --hypervisor openvz \
  --cpu-cores 1 \
  --image-id wmi-centos1d64 \
@@ -897,7 +852,7 @@ $ mussel.sh instance create \
 実行結果例：
 
 > ```
-> $ mussel.sh instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
 > ---
 > :id: i-3dyfffr2
 > :account_id: a-tutorial
@@ -944,13 +899,13 @@ $ mussel.sh instance create \
 ##### 2: インスタンスの状態を確認
 
 ```
-$ mussel.sh instance show i-3dyfffr2
+$ mussel instance show i-3dyfffr2
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance show i-3dyfffr2
+> $ mussel instance show i-3dyfffr2
 > ---
 > :id: i-3dyfffr2
 > :account_id: a-tutorial
@@ -1008,13 +963,13 @@ $ mussel.sh instance show i-3dyfffr2
 uuidを指定して実行します。
 
 ```
-$ mussel.sh instance poweroff i-3dyfffr2
+$ mussel instance poweroff i-3dyfffr2
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance poweroff i-3dyfffr2
+> $ mussel instance poweroff i-3dyfffr2
 > ---
 > :instance_id: i-3dyfffr2
 > ```
@@ -1026,13 +981,13 @@ $ mussel.sh instance poweroff i-3dyfffr2
 uuidを指定して実行します。
 
 ```
-$ mussel.sh instance poweron i-3dyfffr2
+$ mussel instance poweron i-3dyfffr2
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance poweron i-3dyfffr2
+> $ mussel instance poweron i-3dyfffr2
 > ---
 > :instance_id: i-3dyfffr2
 > ```
@@ -1044,13 +999,13 @@ $ mussel.sh instance poweron i-3dyfffr2
 ##### 1:インスタンスの破棄
 
 ```
-$ mussel.sh instance destroy i-3dyfffr2
+$ mussel instance destroy i-3dyfffr2
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance destroy i-3dyfffr2
+> $ mussel instance destroy i-3dyfffr2
 > ---
 > - i-3dyfffr2
 > ```
@@ -1070,7 +1025,7 @@ backup対象となるインスタンスが必要です。細かな操作説明�
 ##### 1: インスタンスの作成
 
 ```
-$ mussel.sh instance create \
+$ mussel instance create \
  --hypervisor openvz \
  --cpu-cores 1 \
  --image-id wmi-centos1d64 \
@@ -1082,7 +1037,7 @@ $ mussel.sh instance create \
 実行結果例：
 
 > ```
-> $ mussel.sh instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
 > ---
 > :id: i-0yuzzyd7
 > :account_id: a-tutorial
@@ -1129,13 +1084,13 @@ $ mussel.sh instance create \
 ##### 2: インスタンスの状態を確認
 
 ```
-$ mussel.sh instance show i-0yuzzyd7
+$ mussel instance show i-0yuzzyd7
 ```
 
 実行結果例：
 
 >```
-> $ mussel.sh instance show i-0yuzzyd7
+> $ mussel instance show i-0yuzzyd7
 > ---
 > :id: i-0yuzzyd7
 > :account_id: a-tutorial
@@ -1189,13 +1144,13 @@ $ mussel.sh instance show i-0yuzzyd7
 ##### 3: インスタンスのpoweroff
 
 ```
-$ mussel.sh instance poweroff i-0yuzzyd7
+$ mussel instance poweroff i-0yuzzyd7
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance poweroff i-0yuzzyd7
+> $ mussel instance poweroff i-0yuzzyd7
 > ---
 > :instance_id: i-0yuzzyd7
 > ```
@@ -1207,11 +1162,11 @@ poweroffまで完了しました。
 インスタンスの状態を確認します。
 
 ```
-$ mussel.sh instance show i-0yuzzyd7
+$ mussel instance show i-0yuzzyd7
 ```
 
 > ```
-> $ mussel.sh instance show i-0yuzzyd7
+> $ mussel instance show i-0yuzzyd7
 > ---
 > :id: i-0yuzzyd7
 > :account_id: a-tutorial
@@ -1269,13 +1224,13 @@ $ mussel.sh instance show i-0yuzzyd7
 uuidを指定して実行します。
 
 ```
-$ mussel.sh instance backup i-0yuzzyd7
+$ mussel instance backup i-0yuzzyd7
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance backup i-0yuzzyd7
+> $ mussel instance backup i-0yuzzyd7
 > ---
 > :instance_id: i-0yuzzyd7
 > :image_id: wmi-4yalh576
@@ -1290,13 +1245,13 @@ $ mussel.sh instance backup i-0yuzzyd7
 uuidを指定して実行します。
 
 ```
-$ mussel.sh image show wmi-4yalh576
+$ mussel image show wmi-4yalh576
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh image show wmi-4yalh576
+> $ mussel image show wmi-4yalh576
 > ---
 > :id: wmi-4yalh576
 > :account_id: a-tutorial
@@ -1330,13 +1285,13 @@ $ mussel.sh image show wmi-4yalh576
 インスタンスのバックアップには、2・3分の時間が必要です。小さいマシンイメージでも、サイズは数百メガあるので、数分の待ち時間が必要です。新マシンイメージからインスタンスを作成するには、バックアップ完了が前提条件です。`:state:`が`available`になるまで、状態を確認します。
 
 ```
-$ mussel.sh image show wmi-4yalh576
+$ mussel image show wmi-4yalh576
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh image show wmi-4yalh576
+> $ mussel image show wmi-4yalh576
 > ---
 > :id: wmi-4yalh576
 > :account_id: a-tutorial
@@ -1372,7 +1327,7 @@ $ mussel.sh image show wmi-4yalh576
 新マシンイメージ`wmi-4yalh576`を指定してインスタンスを作成します。
 
 ```
-$ mussel.sh instance create \
+$ mussel instance create \
  --hypervisor openvz \
  --cpu-cores 1 \
  --image-id wmi-4yalh576 \
@@ -1384,7 +1339,7 @@ $ mussel.sh instance create \
 実行結果例：
 
 > ```
-> $ mussel.sh instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
 > ---
 > :id: i-hbkkrmkb
 > :account_id: a-tutorial
@@ -1431,13 +1386,13 @@ uuidは`i-hbkkrmkb`です。これまでのデモマシンイメージとは違�
 ##### 4: 新インスタンスのIPアドレスを確認
 
 ```
-$ mussel.sh instance show i-hbkkrmkb
+$ mussel instance show i-hbkkrmkb
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance show i-hbkkrmkb
+> $ mussel instance show i-hbkkrmkb
 > ---
 > :id: i-hbkkrmkb
 > :account_id: a-tutorial
@@ -1505,13 +1460,13 @@ $ ssh root@10.0.2.100 -i mykeypair
 ##### 1: インスタンスの破棄
 
 ```
-$ mussel.sh instance destroy i-0yuzzyd7
+$ mussel instance destroy i-0yuzzyd7
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance destroy i-0yuzzyd7
+> $ mussel instance destroy i-0yuzzyd7
 > ---
 > - i-0yuzzyd7
 > ```
@@ -1519,13 +1474,13 @@ $ mussel.sh instance destroy i-0yuzzyd7
 ##### 2: 新インスタンスの破棄
 
 ```
-$ mussel.sh instance destroy i-hbkkrmkb
+$ mussel instance destroy i-hbkkrmkb
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance destroy i-hbkkrmkb
+> $ mussel instance destroy i-hbkkrmkb
 > ---
 > - i-hbkkrmkb
 > ```
@@ -1543,7 +1498,7 @@ $ mussel.sh instance destroy i-hbkkrmkb
 ロードバランサー作成には特有のパラメタを指定します。
 
 ```
-$ mussel.sh load_balancer create \
+$ mussel load_balancer create \
  --balance-algorithm leastconn \
  --engine haproxy \
  --instance-port 80 \
@@ -1566,7 +1521,7 @@ $ mussel.sh load_balancer create \
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http
+> $ mussel load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http
 > ---
 > :id: lb-z3261dc9
 > :uuid: lb-z3261dc9
@@ -1602,13 +1557,13 @@ $ mussel.sh load_balancer create \
 インスタンスと同様に、作成命令は作成予約で、スケジューラがIPアドレスを決定します。
 
 ```
-$ mussel.sh load_balancer show lb-z3261dc9
+$ mussel load_balancer show lb-z3261dc9
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer show lb-z3261dc9
+> $ mussel load_balancer show lb-z3261dc9
 > ---
 > :id: lb-z3261dc9
 > :uuid: lb-z3261dc9
@@ -1675,51 +1630,15 @@ HTTPサーバとして動作してる事が分かります。なお、この時�
 作成したロードバランサーを破棄します。
 
 ```
-$ mussel.sh load_balancer destroy lb-z3261dc9
+$ mussel load_balancer destroy lb-z3261dc9
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer destroy lb-z3261dc9
+> $ mussel load_balancer destroy lb-z3261dc9
 > ---
-> :id: lb-z3261dc9
-> :uuid: lb-z3261dc9
-> :account_id: a-tutorial
-> :instance_id: i-mslqyv0i
-> :instance_protocol: http
-> :instance_port: 80
-> :balance_algorithm: leastconn
-> :cookie_name:
-> :description: ''
-> :private_key: ''
-> :public_key: ''
-> :created_at: 2015-04-08 07:12:31.000000000 Z
-> :updated_at: 2015-04-08 07:12:31.000000000 Z
-> :deleted_at:
-> :display_name:
-> :allow_list:
-> - 0.0.0.0
-> :httpchk_path: ''
-> :state: running
-> :status: online
-> :target_vifs: []
-> :vif:
-> - :vif_id: vif-yu39lp8o
->   :vif_index: 0
->   :network_id: nw-demo1
->   :ipv4:
->     :address: 10.0.2.100
->     :nat_address:
-> - :vif_id: vif-h9lzads6
->   :vif_index: 1
->   :network_id: nw-demo8
->   :ipv4:
->     :address: 10.1.0.10
->     :nat_address:
-> :inbounds:
-> - :port: 80
->   :protocol: http
+> - lb-z3261dc9
 > ```
 
 #### ここまでのまとめ
@@ -1747,7 +1666,7 @@ client -> lb -+- webA
 webインスタンスのマシンイメージには、`wmi-lbnode1d64`を使用します。これはロードバランサー連携確認用に特化したマシンイメージです。
 
 ```
-$ mussel.sh image show wmi-lbnode1d64
+$ mussel image show wmi-lbnode1d64
 ```
 
 なお、デモ用マシンイメージの所有者は管理者なので、一般アカウントには閲覧権限がありません。管理権限が無い場合は、以下の様に存在しないリソースとして扱われます。今回は一般アカウントで操作しているので、閲覧出来ません。詳細情報を閲覧出来ませんが、インスタンス作成時にマシンイメージを指定する事は可能です。
@@ -1755,14 +1674,14 @@ $ mussel.sh image show wmi-lbnode1d64
 実際の実行結果例：
 
 > ```
-> $ mussel.sh image show wmi-lbnode1d64
+> $ mussel image show wmi-lbnode1d64
 > curl: (22) The requested URL returned error: 404 Not Found
 > ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh image show wmi-lbnode1d64
+> $ mussel image show wmi-lbnode1d64
 > ---
 > :id: wmi-lbnode1d64
 > :account_id: a-shpoolxx
@@ -1798,7 +1717,7 @@ $ mussel.sh image show wmi-lbnode1d64
 ###### 1: webインスタンスAの作成
 
 ```
-$ mussel.sh instance create \
+$ mussel instance create \
  --hypervisor openvz \
  --cpu-cores 1 \
  --image-id wmi-lbnode1d64 \
@@ -1810,7 +1729,7 @@ $ mussel.sh instance create \
 実行結果例：
 
 > ```
-> $ mussel.sh instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
 > ---
 > :id: i-zticoe9h
 > :account_id: a-tutorial
@@ -1857,13 +1776,13 @@ $ mussel.sh instance create \
 ###### 2: webインスタンスAのIPアドレスとvifのuuidを確認
 
 ```
-$ mussel.sh instance show i-zticoe9h
+$ mussel instance show i-zticoe9h
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance show i-zticoe9h
+> $ mussel instance show i-zticoe9h
 > ---
 > :id: i-zticoe9h
 > :account_id: a-tutorial
@@ -1933,13 +1852,13 @@ $ curl http://10.0.2.100/
 ###### 4: webインスタンスAのvifを確認
 
 ```
-$ mussel.sh network_vif show vif-ccrwjrmv
+$ mussel network_vif show vif-ccrwjrmv
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh network_vif show vif-ccrwjrmv
+> $ mussel network_vif show vif-ccrwjrmv
 > ---
 > :id: vif-ccrwjrmv
 > :uuid: vif-ccrwjrmv
@@ -1964,7 +1883,7 @@ $ mussel.sh network_vif show vif-ccrwjrmv
 ###### 1: webインスタンスBの作成
 
 ```
-$ mussel.sh instance create \
+$ mussel instance create \
  --hypervisor openvz \
  --cpu-cores 1 \
  --image-id wmi-lbnode1d64 \
@@ -1976,7 +1895,7 @@ $ mussel.sh instance create \
 実行結果例：
 
 > ```
-> $ mussel.sh instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
 > ---
 > :id: i-c07ips1b
 > :account_id: a-tutorial
@@ -2023,13 +1942,13 @@ $ mussel.sh instance create \
 ###### 2: webインスタンスBのIPアドレスとvifのuuidを確認
 
 ```
-$ mussel.sh instance show i-c07ips1b
+$ mussel instance show i-c07ips1b
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance show i-c07ips1b
+> $ mussel instance show i-c07ips1b
 > ---
 > :id: i-c07ips1b
 > :account_id: a-tutorial
@@ -2099,13 +2018,13 @@ $ curl http://10.0.2.101/
 ###### 4: webインスタンスBのvifを確認
 
 ```
-$ mussel.sh network_vif show vif-q1uzm9za
+$ mussel network_vif show vif-q1uzm9za
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh network_vif show vif-q1uzm9za
+> $ mussel network_vif show vif-q1uzm9za
 > ---
 > :id: vif-q1uzm9za
 > :uuid: vif-q1uzm9za
@@ -2130,7 +2049,7 @@ $ mussel.sh network_vif show vif-q1uzm9za
 ###### 1: ロードバランサーの作成
 
 ```
-$ mussel.sh load_balancer create \
+$ mussel load_balancer create \
  --balance-algorithm leastconn \
  --max-connection 1000 \
  --port 80 \
@@ -2142,7 +2061,7 @@ $ mussel.sh load_balancer create \
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http
+> $ mussel load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2174,13 +2093,13 @@ $ mussel.sh load_balancer create \
 ###### 2: ロードバランサーのIPアドレスを確認
 
 ```
-$ mussel.sh load_balancer show lb-wk919s67
+$ mussel load_balancer show lb-wk919s67
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer show lb-wk919s67
+> $ mussel load_balancer show lb-wk919s67
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2263,13 +2182,13 @@ $ curl http://10.0.2.102/
 ###### 1: ロードバランサーにwebインスタンスAを登録
 
 ```
-$ mussel.sh load_balancer register lb-474byn9f --vifs vif-ccrwjrmv
+$ mussel load_balancer register lb-474byn9f --vifs vif-ccrwjrmv
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer register lb-wk919s67 --vifs vif-ccrwjrmv
+> $ mussel load_balancer register lb-wk919s67 --vifs vif-ccrwjrmv
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2313,13 +2232,13 @@ $ mussel.sh load_balancer register lb-474byn9f --vifs vif-ccrwjrmv
 ###### 2: ロードバランサーにwebインスタンスBを登録
 
 ```
-$ mussel.sh load_balancer register lb-474byn9f --vifs vif-q1uzm9za
+$ mussel load_balancer register lb-474byn9f --vifs vif-q1uzm9za
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer register lb-wk919s67 --vifs vif-q1uzm9za
+> $ mussel load_balancer register lb-wk919s67 --vifs vif-q1uzm9za
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2367,13 +2286,13 @@ $ mussel.sh load_balancer register lb-474byn9f --vifs vif-q1uzm9za
 ###### 3: ロードバランサーの状態を確認
 
 ```
-$ mussel.sh load_balancer show lb-wk919s67
+$ mussel load_balancer show lb-wk919s67
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer show lb-wk919s67
+> $ mussel load_balancer show lb-wk919s67
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2461,13 +2380,13 @@ webインスタンスAとwebインスタンスBのuuidが表示されました�
 ###### 1: ロードバランサーからwebインスタンスAを削除
 
 ```
-$ mussel.sh load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
+$ mussel load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
+> $ mussel load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2519,13 +2438,13 @@ $ mussel.sh load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
 ###### 2: ロードバランサーからwebインスタンスBを削除
 
 ```
-$ mussel.sh load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
+$ mussel load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
+> $ mussel load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2573,13 +2492,13 @@ $ mussel.sh load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
 ###### 3: ロードバランサーの状態を確認
 
 ```
-$ mussel.sh load_balancer show lb-wk919s67
+$ mussel load_balancer show lb-wk919s67
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer show lb-wk919s67
+> $ mussel load_balancer show lb-wk919s67
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
@@ -2642,13 +2561,13 @@ $ curl http://10.0.2.102/
 ##### 1: webインスタンスAの削除
 
 ```
-$ mussel.sh destroy destroy i-zticoe9h
+$ mussel destroy destroy i-zticoe9h
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance destroy i-zticoe9h
+> $ mussel instance destroy i-zticoe9h
 > ---
 > - i-zticoe9h
 > ```
@@ -2656,13 +2575,13 @@ $ mussel.sh destroy destroy i-zticoe9h
 ##### 2: webインスタンスBの削除
 
 ```
-$ mussel.sh destroy destroy i-c07ips1b
+$ mussel destroy destroy i-c07ips1b
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh instance destroy i-c07ips1b
+> $ mussel instance destroy i-c07ips1b
 > ---
 > - i-c07ips1b
 > ```
@@ -2670,13 +2589,13 @@ $ mussel.sh destroy destroy i-c07ips1b
 ##### 3: ロードバランサーの削除
 
 ```
-$ mussel.sh load_balancer destroy lb-wk919s67
+$ mussel load_balancer destroy lb-wk919s67
 ```
 
 実行結果例：
 
 > ```
-> $ mussel.sh load_balancer destroy lb-wk919s67
+> $ mussel load_balancer destroy lb-wk919s67
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
