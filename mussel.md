@@ -64,51 +64,6 @@ $ mussel <resource> <command> --name value
 $ mussel <resource> <command> --name value --name2 value2
 ```
 
-## 環境変数`PATH`の設定
-
-Wakame-vdcをRPMでインストールすると、`mussel`は`/usr/bin/mussel`に配置されます。毎回フルパス指定するのは、作業する上で不便です。そこで、環境変数`PATH`に`/usr/bin/mussel`を追加します。
-
-### `.bashrc`の修正
-
-bashの場合、`.bashrc`を修正します。
-
-```
-$ vi ~/.bashrc
-```
-
-下記内容を追記します。
-
-```
-PATH=${PATH}:/usr/bin/mussel
-```
-
-### 変更内容の反映
-
-変更した内容を現在のシェルに反映します。
-
-```
-$ source ~/.bashrc
-```
-
-正しく`PATH`が設定されていれば、フルパス指定せず`mussel`だけで実行可能です。
-
-### 変更内容の反映
-
-正しく設定されている事を`type`コマンドで確認します。
-
-```
-$ type -P mussel
-```
-
-実行結果例：
-
-> ```
-> $ type -P mussel
-> /usr/bin/mussel
-> ```
-
-これで環境変数`PATH`の設定は完了です。
-
 ## `mussel-completion.bash`による入力支援
 
 musselではbashのcompletion(補完)機能を利用した入力支援機能を提供しています。
