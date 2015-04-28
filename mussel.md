@@ -49,7 +49,7 @@ musselによる快適かつ直観的なWakame-vdcリソース操作をお楽し�
 
 Wakame-vdcは`/opt/axsh/wakame-vdc`にインストールされる事を想定しています。以下に2つの方法を紹介します。
 
-## Yumによるインストール(RHEL6/CentOS6互換環境)
+## Yumによるインストール(RHEL6互換環境)
 
 Wakame-vdcはYumリポジトリを提供しているので、Yumによるインストールが推奨されています。
 
