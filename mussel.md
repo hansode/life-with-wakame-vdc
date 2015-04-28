@@ -45,6 +45,92 @@ curl版とmussel版を比較すると、どうでしょうか？mussel版では�
 
 musselによる快適かつ直観的なWakame-vdcリソース操作をお楽しみ下さい。
 
+# musselのインストール方法
+
+Wakame-vdcは`/opt/axsh/wakame-vdc`にインストールされる事を想定しています。以下に2つの方法を紹介します。
+
+## Yumによるインストール(RHEL6/CentOS6互換環境)
+
+Wakame-vdcはYumリポジトリを提供しているので、Yumによるインストールが推奨されています。
+
+```
+$ sudo curl -fsSkL \
+ https://raw.githubusercontent.com/axsh/wakame-vdc/master/rpmbuild/wakame-vdc.repo \
+ -o /etc/yum.repos.d/wakame-vdc.repo
+$ sudo yum install -y wakame-vdc-client-mussel
+```
+
+実行結果例：
+
+> ```
+> $ sudo curl -fsSkL \
+> >  https://raw.githubusercontent.com/axsh/wakame-vdc/master/rpmbuild/wakame-vdc.repo \
+> >  -o /etc/yum.repos.d/wakame-vdc.repo
+> $ sudo yum install -y wakame-vdc-client-mussel
+> Loaded plugins: fastestmirror
+> Loading mirror speeds from cached hostfile
+> Setting up Install Process
+> Resolving Dependencies
+> --> Running transaction check
+> ---> Package wakame-vdc-client-mussel.noarch 0:15.03-20150427171952gited56eff.el6 will be installed
+> --> Finished Dependency Resolution
+>
+> Dependencies Resolved
+>
+> ================================================================================
+>  Package       Arch   Version                            Repository        Size
+> ================================================================================
+> Installing:
+>  wakame-vdc-client-mussel
+>                noarch 15.03-20150427171952gited56eff.el6 wakame-vdc-rhel6  92 k
+>
+> Transaction Summary
+> ================================================================================
+> Install       1 Package(s)
+>
+> Total download size: 92 k
+> Installed size: 376 k
+> Downloading Packages:
+> wakame-vdc-client-mussel-15.03-20150427171952gited56eff. |  92 kB     00:00
+> Running rpm_check_debug
+> Running Transaction Test
+> Transaction Test Succeeded
+> Running Transaction
+>   Installing : wakame-vdc-client-mussel-15.03-20150427171952gited56eff.el   1/1
+>   Verifying  : wakame-vdc-client-mussel-15.03-20150427171952gited56eff.el   1/1
+>
+> Installed:
+>   wakame-vdc-client-mussel.noarch 0:15.03-20150427171952gited56eff.el6
+>
+> Complete!
+> ```
+
+## Gitによるインストール
+
+musselはシェルスクリプトで実装されているのでコンパイル不要です。つまり、ソースツリーから簡単にインストールが可能です。
+
+```
+$ git clone https://github.com/axsh/wakame-vdc.git
+$ sudo mkdir -p /opt/axsh
+$ sudo mv wakame-vdc /opt/axsh
+$ sudo ln -s /opt/axsh/wakame-vdc/client/mussel/bin/mussel /usr/bin/mussel
+```
+
+実行結果例：
+
+> ```
+> $ git clone https://github.com/axsh/wakame-vdc.git
+> Initialized empty Git repository in /home/centos/wakame-vdc/.git/
+> remote: Counting objects: 74797, done.
+> remote: Compressing objects: 100% (269/269), done.
+> remote: Total 74797 (delta 137), reused 1 (delta 1), pack-reused 74505
+> Receiving objects: 100% (74797/74797), 25.77 MiB | 9.22 MiB/s, done.
+> Resolving deltas: 100% (47748/47748), done.
+> $ sudo mkdir -p /opt/axsh
+> $ sudo mv -i wakame-vdc /opt/axsh
+> $ sudo ln -s /opt/axsh/wakame-vdc/client/mussel/bin/mussel /usr/bin/mussel
+> ```
+
 # musselの使い方
 
 ## 実行方法
