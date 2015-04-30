@@ -160,7 +160,7 @@ musselではbashのcompletion(補完)機能を利用した入力支援機能を�
 
 ```
 $ curl -fsSkL \
- https://raw.githubusercontent.com/axsh/wakame-vdc/feature-mussel-completion/client/mussel/completion/mussel-completion.bash \
+ https://raw.githubusercontent.com/axsh/wakame-vdc/mussel/client/mussel/completion/mussel-completion.bash \
  -o ~/.mussel-completion.bash
 ```
 
