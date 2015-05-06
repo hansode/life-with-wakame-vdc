@@ -16,7 +16,7 @@ curlによるAPI呼び出し例：
 
 ```
 $ curl -fsSkL \
- -H X_VDC_ACCOUNT_UUID:a-tutorial \
+ -H X_VDC_ACCOUNT_UUID:a-shpoolxx \
  -X POST \
  --data-urlencode cpu_cores=1 \
  --data-urlencode hypervisor=openvz \
@@ -224,7 +224,7 @@ $ vi ~/.musselrc
 
 ```
 DCMGR_HOST=127.0.0.1
-account_id=a-tutorial
+account_id=a-shpoolxx
 ```
 
 ### 環境変数`MUSSEL_RC`によるパス指定
@@ -324,7 +324,7 @@ $ mussel ssh_key_pair create --public-key mykeypair.pub
 > $ mussel ssh_key_pair create --public-key mykeypair.pub
 > ---
 > :id: ssh-ruekc3bs
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :uuid: ssh-ruekc3bs
 > :finger_print: 37:14:43:28:f7:0f:9e:be:fc:80:63:19:bf:48:b0:f2
 > :public_key: |
@@ -354,7 +354,7 @@ $ mussel ssh_key_pair show ssh-ruekc3bs
 > $ mussel ssh_key_pair show ssh-ruekc3bs
 > ---
 > :id: ssh-ruekc3bs
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :uuid: ssh-ruekc3bs
 > :finger_print: 37:14:43:28:f7:0f:9e:be:fc:80:63:19:bf:48:b0:f2
 > :public_key: |
@@ -410,7 +410,7 @@ $ mussel security_group create --rule sgrule.txt
 > $ mussel security_group create --rule sgrule.txt
 > ---
 > :id: sg-nhrd602s
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :uuid: sg-nhrd602s
 > :created_at: 2015-04-08 05:27:57.000000000 Z
 > :updated_at: 2015-04-08 05:27:57.000000000 Z
@@ -456,7 +456,7 @@ $ mussel security_group show sg-nhrd602s
 > $ mussel security_group show sg-nhrd602s
 > ---
 > :id: sg-nhrd602s
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :uuid: sg-nhrd602s
 > :created_at: 2015-04-08 05:27:57.000000000 Z
 > :updated_at: 2015-04-08 05:27:57.000000000 Z
@@ -714,7 +714,7 @@ $ mussel instance create \
 > $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-31zmj9fr
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node:
 > :cpu_cores: 1
 > :memory_size: 256
@@ -773,7 +773,7 @@ $ mussel instance show i-31zmj9fr
 > $ mussel instance show i-31zmj9fr
 > ---
 > :id: i-31zmj9fr
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node: hn-1box64
 > :cpu_cores: 1
 > :memory_size: 256
@@ -905,7 +905,7 @@ $ mussel instance create \
 > $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-3dyfffr2
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node:
 > :cpu_cores: 1
 > :memory_size: 256
@@ -958,7 +958,7 @@ $ mussel instance show i-3dyfffr2
 > $ mussel instance show i-3dyfffr2
 > ---
 > :id: i-3dyfffr2
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node: hn-1box64
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1090,7 +1090,7 @@ $ mussel instance create \
 > $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-0yuzzyd7
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node:
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1143,7 +1143,7 @@ $ mussel instance show i-0yuzzyd7
 > $ mussel instance show i-0yuzzyd7
 > ---
 > :id: i-0yuzzyd7
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node: hn-1box64
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1219,7 +1219,7 @@ $ mussel instance show i-0yuzzyd7
 > $ mussel instance show i-0yuzzyd7
 > ---
 > :id: i-0yuzzyd7
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node: hn-1box64
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1304,7 +1304,7 @@ $ mussel image show wmi-4yalh576
 > $ mussel image show wmi-4yalh576
 > ---
 > :id: wmi-4yalh576
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :uuid: wmi-4yalh576
 > :created_at: 2015-04-08 07:06:20.000000000 Z
 > :updated_at: 2015-04-08 07:06:20.000000000 Z
@@ -1344,7 +1344,7 @@ $ mussel image show wmi-4yalh576
 > $ mussel image show wmi-4yalh576
 > ---
 > :id: wmi-4yalh576
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :uuid: wmi-4yalh576
 > :created_at: 2015-04-08 07:06:20.000000000 Z
 > :updated_at: 2015-04-08 07:07:06.000000000 Z
@@ -1392,7 +1392,7 @@ $ mussel instance create \
 > $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-hbkkrmkb
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node:
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1445,7 +1445,7 @@ $ mussel instance show i-hbkkrmkb
 > $ mussel instance show i-hbkkrmkb
 > ---
 > :id: i-hbkkrmkb
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node: hn-1box64
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1575,7 +1575,7 @@ $ mussel load_balancer create \
 > ---
 > :id: lb-z3261dc9
 > :uuid: lb-z3261dc9
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-mslqyv0i
 > :instance_protocol: http
 > :instance_port: 80
@@ -1617,7 +1617,7 @@ $ mussel load_balancer show lb-z3261dc9
 > ---
 > :id: lb-z3261dc9
 > :uuid: lb-z3261dc9
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-mslqyv0i
 > :instance_protocol: http
 > :instance_port: 80
@@ -1782,7 +1782,7 @@ $ mussel instance create \
 > $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-zticoe9h
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node:
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1835,7 +1835,7 @@ $ mussel instance show i-zticoe9h
 > $ mussel instance show i-zticoe9h
 > ---
 > :id: i-zticoe9h
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node: hn-1box64
 > :cpu_cores: 1
 > :memory_size: 256
@@ -1948,7 +1948,7 @@ $ mussel instance create \
 > $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-c07ips1b
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node:
 > :cpu_cores: 1
 > :memory_size: 256
@@ -2001,7 +2001,7 @@ $ mussel instance show i-c07ips1b
 > $ mussel instance show i-c07ips1b
 > ---
 > :id: i-c07ips1b
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :host_node: hn-1box64
 > :cpu_cores: 1
 > :memory_size: 256
@@ -2115,7 +2115,7 @@ $ mussel load_balancer create \
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
@@ -2153,7 +2153,7 @@ $ mussel load_balancer show lb-wk919s67
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
@@ -2242,7 +2242,7 @@ $ mussel load_balancer register lb-474byn9f --vifs vif-ccrwjrmv
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
@@ -2292,7 +2292,7 @@ $ mussel load_balancer register lb-474byn9f --vifs vif-q1uzm9za
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
@@ -2346,7 +2346,7 @@ $ mussel load_balancer show lb-wk919s67
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
@@ -2440,7 +2440,7 @@ $ mussel load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
@@ -2498,7 +2498,7 @@ $ mussel load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
@@ -2552,7 +2552,7 @@ $ mussel load_balancer show lb-wk919s67
 > ---
 > :id: lb-wk919s67
 > :uuid: lb-wk919s67
-> :account_id: a-tutorial
+> :account_id: a-shpoolxx
 > :instance_id: i-rxjmir5r
 > :instance_protocol: http
 > :instance_port: 80
