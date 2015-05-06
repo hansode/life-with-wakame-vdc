@@ -23,7 +23,7 @@ $ curl -fsSkL \
  --data-urlencode image_id=wmi-lbnode1d64 \
  --data-urlencode memory_size=256 \
  --data-urlencode ssh_key_id=ssh-ruekc3bs \
- --data-urlencode vifs@vifs.txt \
+ --data-urlencode vifs@vifs.json \
  http://127.0.0.1:9001/api/12.03/instances.yml
 ```
 
@@ -38,7 +38,7 @@ $ mussel instance create \
  --image-id    wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id  ssh-ruekc3bs \
- --vifs        vifs.txt
+ --vifs        vifs.json
 ```
 
 curl版とmussel版を比較すると、どうでしょうか？mussel版では「Wakame-vdcインスタンスを作成する」為の命令・パラメタだけが、顔を覗かせています。ユーザーはHTTPの手続きを気にする事なく、Wakame-vdcのリソース操作に注力出来ます。
@@ -154,20 +154,12 @@ $ mussel <resource> <command> --name value --name2 value2
 
 musselではbashのcompletion(補完)機能を利用した入力支援機能を提供しています。
 
-### `mussel-completion.bash`のインストール
+### `mussel-completion.bash`の設定
 
-`mussel-completion.bash`を`~/.mussel-completion.bash`に配置します。
-
-```
-$ curl -fsSkL \
- https://raw.githubusercontent.com/axsh/wakame-vdc/mussel/client/mussel/completion/mussel-completion.bash \
- -o ~/.mussel-completion.bash
-```
-
-`mussel-completion.bash`を`~/.mussel-completion.bash`に配置します。次に`.bashrc`を修正し、以下の内容を追加します。
+`mussel-completion.bash`は、`/opt/axsh/wakame-vdc/client/mussel/completion/mussel-completion.bash`に配置されています。`.bashrc`を修正し、以下の内容を追加します。
 
 ```
-source ~/.mussel-completion.bash
+source /opt/axsh/wakame-vdc/client/mussel/completion/mussel-completion.bash
 ```
 
 ### 変更内容の反映
@@ -683,7 +675,7 @@ $ mussel network show nw-demo1
 JSON形式で定義します。
 
 ```
-$ vi vifs.txt
+$ vi vifs.json
 ```
 
 ```
@@ -696,7 +688,7 @@ $ vi vifs.txt
 + 参加するネットワークは、`nw-demo1`
 + 適用するセキュリティグループは、`sg-nhrd602s`
 
-`vifs.txt`を作成しました。
+`vifs.json`を作成しました。
 
 ### 成果物の整理
 
@@ -707,7 +699,7 @@ $ vi vifs.txt
 + セキュリティグループ: `sg-nhrd602s`
 + マシンイメージ: `wmi-centos1d64`
 + ネットワーク：`nw-demo1`
-+ vif構成：`vifs.txt`
++ vif構成：`vifs.json`
 
 この後のインスタンス操作で使うので、必ず整理しておいてください。
 
@@ -718,7 +710,7 @@ $ vi vifs.txt
 + SSHキーペア: `ssh-ruekc3bs`
 + SSH秘密鍵: `mykeypair`
 + マシンイメージ: `wmi-centos1d64`
-+ vif構成：`vifs.txt`
++ vif構成：`vifs.json`
 
 ### インスタンスの作成と破棄
 
@@ -735,7 +727,7 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --vifs vifs.txt
+ --vifs vifs.json
 ```
 
 インスタンスのスペック用パラメタの内容は、以下の通りです。
@@ -747,7 +739,7 @@ $ mussel instance create \
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-31zmj9fr
 > :account_id: a-tutorial
@@ -932,13 +924,13 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --vifs vifs.txt
+ --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-3dyfffr2
 > :account_id: a-tutorial
@@ -1117,13 +1109,13 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --vifs vifs.txt
+ --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-0yuzzyd7
 > :account_id: a-tutorial
@@ -1419,13 +1411,13 @@ $ mussel instance create \
  --image-id wmi-4yalh576 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --vifs vifs.txt
+ --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-hbkkrmkb
 > :account_id: a-tutorial
@@ -1809,13 +1801,13 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --vifs vifs.txt
+ --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-zticoe9h
 > :account_id: a-tutorial
@@ -1975,13 +1967,13 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --vifs=vifs.txt
+ --vifs=vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.txt
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
 > ---
 > :id: i-c07ips1b
 > :account_id: a-tutorial
