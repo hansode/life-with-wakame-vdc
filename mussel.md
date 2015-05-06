@@ -152,17 +152,128 @@ $ mussel <resource> <command> --name value --name2 value2
 
 ## `mussel-completion.bash`による入力支援
 
-musselではbashのcompletion(補完)機能を利用した入力支援機能を提供しています。
+musselではbashのcompletion(補完)機能を利用した入力支援機能を提供しています。以下に2つの方法を紹介します。
+
+### `bash-completion`による設定(RHEL6互換環境)
+
+`bash-completion`と連携した使い方がお勧めです。`bash-completion`をインストールするには、EPELをインストールする必要があります。
+
+```
+$ sudo yum install -y epel-release
+```
+
+実行結果例：
+
+> ```
+> $ sudo yum install -y epel-release
+> Loaded plugins: fastestmirror
+> Setting up Install Process
+> Loading mirror speeds from cached hostfile
+>  * base: ftp.nara.wide.ad.jp
+>  * extras: ftp.nara.wide.ad.jp
+>  * updates: mirror.nus.edu.sg
+> Resolving Dependencies
+> --> Running transaction check
+> ---> Package epel-release.noarch 0:6-8 will be installed
+> --> Finished Dependency Resolution
+>
+> Dependencies Resolved
+>
+> ================================================================================
+> Package                Arch             Version         Repository        Size
+> ================================================================================
+> Installing:
+>  epel-release           noarch           6-8             extras            14 k
+>
+> Transaction Summary
+> ================================================================================
+> Install       1 Package(s)
+>
+> Total download size: 14 k
+> Installed size: 22 k
+> Downloading Packages:
+> epel-release-6-8.noarch.rpm                              |  14 kB     00:00
+> Running rpm_check_debug
+> Running Transaction Test
+> Transaction Test Succeeded
+> Running Transaction
+>   Installing : epel-release-6-8.noarch                                      1/1
+>   Verifying  : epel-release-6-8.noarch                                      1/1
+>
+> Installed:
+>   epel-release.noarch 0:6-8
+>
+> Complete!
+> ```
+
+次に`bash-completion`をインストールします。
+
+```
+$ sudo yum install -y bash-completion
+```
+
+> ```
+> $ sudo yum install -y bash-completion
+> Loaded plugins: fastestmirror
+> Setting up Install Process
+> Loading mirror speeds from cached hostfile
+>  * base: ftp.nara.wide.ad.jp
+>  * epel: ftp.iij.ad.jp
+>  * extras: ftp.nara.wide.ad.jp
+>  * updates: mirror.nus.edu.sg
+> Resolving Dependencies
+> --> Running transaction check
+> ---> Package bash-completion.noarch 1:1.3-7.el6 will be installed
+> --> Finished Dependency Resolution
+>
+> Dependencies Resolved
+>
+> ================================================================================
+>  Package                 Arch           Version              Repository    Size
+> ================================================================================
+> Installing:
+>  bash-completion         noarch         1:1.3-7.el6          epel         216 k
+>
+> Transaction Summary
+> ================================================================================
+> Install       1 Package(s)
+>
+> Total download size: 216 k
+> Installed size: 576 k
+> Downloading Packages:
+> bash-completion-1.3-7.el6.noarch.rpm                     | 216 kB     00:00
+> warning: rpmts_HdrFromFdno: Header V3 RSA/SHA256 Signature, key ID 0608b895: NOKEY
+> Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+> Importing GPG key 0x0608B895:
+>  Userid : EPEL (6) <epel@fedoraproject.org>
+>  Package: epel-release-6-8.noarch (@extras)
+>  From   : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+> Running rpm_check_debug
+> Running Transaction Test
+> Transaction Test Succeeded
+> Running Transaction
+>   Installing : 1:bash-completion-1.3-7.el6.noarch                           1/1
+>   Verifying  : 1:bash-completion-1.3-7.el6.noarch                           1/1
+>
+> Installed:
+>   bash-completion.noarch 1:1.3-7.el6
+>
+> Complete!
+> ```
+
+新たにシェルを起動すると、completionを利用可能状態です。
+
+```
+$ bash
+```
 
 ### `mussel-completion.bash`の設定
 
-`mussel-completion.bash`は、`/opt/axsh/wakame-vdc/client/mussel/completion/mussel-completion.bash`に配置されています。`.bashrc`を修正し、以下の内容を追加します。
+ソースからインストールした場合の手順です。`mussel-completion.bash`は、`/opt/axsh/wakame-vdc/client/mussel/completion/mussel-completion.bash`に配置されています。`.bashrc`を修正し、以下の内容を追加します。
 
 ```
 source /opt/axsh/wakame-vdc/client/mussel/completion/mussel-completion.bash
 ```
-
-### 変更内容の反映
 
 変更した内容を現在のシェルに反映します。
 
