@@ -500,17 +500,6 @@ $ mussel security_group show sg-nhrd602s
 $ mussel image show wmi-centos1d64
 ```
 
-なお、デモ用マシンイメージの所有者は管理者なので、一般アカウントには閲覧権限がありません。管理権限が無い場合は、以下の様に存在しないリソースとして扱われます。今回は一般アカウントで操作しているので、閲覧出来ません。詳細情報を閲覧出来ませんが、インスタンス作成時に指定する事は可能です。
-
-実際の実行結果例：
-
-> ```
-> $ mussel image show wmi-centos1d64
-> curl: (22) The requested URL returned error: 404 Not Found
-> ```
-
-管理者権限がある場合、以下の様な内容が表示されます。
-
 実行結果例：
 
 > ```
@@ -551,22 +540,11 @@ $ mussel image show wmi-centos1d64
 
 #### 1: ネットワーク情報の確認
 
-ネットワーク情報は特殊なリソースの1つです。管理者権限を必要とします。
+デモ用ネットワークのuuidは`nw-demo1`です。
 
 ```
 $ mussel network show nw-demo1
 ```
-
-管理権限が無い場合は、以下の様に存在しないリソースとして扱われます。今回は一般アカウントで操作しているので、閲覧出来ません。詳細情報を閲覧出来ませんが、インスタンス作成時に指定する事は可能です。
-
-実際の実行結果例：
-
-> ```
-> $ mussel network show nw-demo1
-> curl: (22) The requested URL returned error: 404 Not Found
-> ```
-
-管理者権限がある場合、以下の様な内容が表示されます。
 
 実行結果例：
 
