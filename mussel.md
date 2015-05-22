@@ -817,7 +817,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-iednolgh
 >   :state: scheduling
@@ -876,7 +876,7 @@ $ mussel instance show i-31zmj9fr
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-iednolgh
 >   :state: attached
@@ -1008,7 +1008,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2zlab2pu
 >   :state: scheduling
@@ -1061,7 +1061,7 @@ $ mussel instance show i-3dyfffr2
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2zlab2pu
 >   :state: attached
@@ -1139,7 +1139,7 @@ $ mussel instance show i-3dyfffr2
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2zlab2pu
 >   :state: attached
@@ -1217,7 +1217,7 @@ $ mussel instance show i-3dyfffr2
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2zlab2pu
 >   :state: attached
@@ -1311,7 +1311,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-smguw2al
 >   :state: scheduling
@@ -1364,7 +1364,7 @@ $ mussel instance show i-0yuzzyd7
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-smguw2al
 >   :state: attached
@@ -1440,7 +1440,7 @@ $ mussel instance show i-0yuzzyd7
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-smguw2al
 >   :state: attached
@@ -1613,7 +1613,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-ja0kj1f0
 >   :state: scheduling
@@ -1666,7 +1666,7 @@ $ mussel instance show i-hbkkrmkb
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-ja0kj1f0
 >   :state: attached
@@ -1994,7 +1994,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2aqmitnv
 >   :state: scheduling
@@ -2047,7 +2047,7 @@ $ mussel instance show i-zticoe9h
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2aqmitnv
 >   :state: attached
@@ -2160,7 +2160,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-kacvvihj
 >   :state: scheduling
@@ -2213,7 +2213,7 @@ $ mussel instance show i-c07ips1b
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-kacvvihj
 >   :state: attached
