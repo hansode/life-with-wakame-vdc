@@ -1113,9 +1113,67 @@ $ mussel instance poweroff i-3dyfffr2
 > :instance_id: i-3dyfffr2
 > ```
 
-成功すると、uuidが表示されます。
+##### 2: poweroff後のインスタンスの状態を確認
 
-##### 2: インスタンスのpoweron
+```
+$ mussel instance show i-3dyfffr2
+```
+
+実行結果例：
+
+> ```
+> $ mussel instance show i-3dyfffr2
+> ---
+> :id: i-3dyfffr2
+> :account_id: a-shpoolxx
+> :host_node: hn-1box64
+> :cpu_cores: 1
+> :memory_size: 256
+> :arch: x86_64
+> :image_id: wmi-centos1d64
+> :created_at: 2015-04-08 05:37:48.000000000 Z
+> :updated_at: 2015-04-08 05:38:25.000000000 Z
+> :terminated_at:
+> :deleted_at:
+> :state: halted
+> :status: online
+> :ssh_key_pair:
+>   :uuid: ssh-ruekc3bs
+>   :display_name: ''
+> :volume:
+> - :vol_id: vol-2zlab2pu
+>   :state: attached
+> :vif:
+> - :vif_id: vif-fnh7qx5g
+>   :network_id: nw-demo1
+>   :ipv4:
+>     :address: 10.0.2.100
+>     :nat_address:
+>   :security_groups:
+>   - sg-nhrd602s
+> :hostname: 3dyfffr2
+> :ha_enabled: 0
+> :hypervisor: openvz
+> :display_name: ''
+> :service_type: std
+> :monitoring:
+>   :enabled: false
+>   :mail_address: []
+>   :items: {}
+> :labels:
+> - :resource_uuid: i-3dyfffr2
+>   :name: monitoring.enabled
+>   :value_type: 1
+>   :value: 'false'
+>   :created_at: 2015-04-08 05:37:48.000000000 Z
+>   :updated_at: 2015-04-08 05:37:48.000000000 Z
+> :boot_volume_id: vol-2zlab2pu
+> :encrypted_password:
+> ```
+
+`:state:`が`halted`になってる事を確認します。poweronする為の前提条件です。
+
+##### 3: インスタンスのpoweron
 
 uuidを指定して実行します。
 
@@ -1132,6 +1190,66 @@ $ mussel instance poweron i-3dyfffr2
 > ```
 
 成功すると、uuidが表示されます。
+
+##### 4: poweron後のインスタンスの状態を確認
+
+```
+$ mussel instance show i-3dyfffr2
+```
+
+実行結果例：
+
+> ```
+> $ mussel instance show i-3dyfffr2
+> ---
+> :id: i-3dyfffr2
+> :account_id: a-shpoolxx
+> :host_node: hn-1box64
+> :cpu_cores: 1
+> :memory_size: 256
+> :arch: x86_64
+> :image_id: wmi-centos1d64
+> :created_at: 2015-04-08 05:37:48.000000000 Z
+> :updated_at: 2015-04-08 05:38:52.000000000 Z
+> :terminated_at:
+> :deleted_at:
+> :state: running
+> :status: online
+> :ssh_key_pair:
+>   :uuid: ssh-ruekc3bs
+>   :display_name: ''
+> :volume:
+> - :vol_id: vol-2zlab2pu
+>   :state: attached
+> :vif:
+> - :vif_id: vif-fnh7qx5g
+>   :network_id: nw-demo1
+>   :ipv4:
+>     :address: 10.0.2.100
+>     :nat_address:
+>   :security_groups:
+>   - sg-nhrd602s
+> :hostname: 3dyfffr2
+> :ha_enabled: 0
+> :hypervisor: openvz
+> :display_name: ''
+> :service_type: std
+> :monitoring:
+>   :enabled: false
+>   :mail_address: []
+>   :items: {}
+> :labels:
+> - :resource_uuid: i-3dyfffr2
+>   :name: monitoring.enabled
+>   :value_type: 1
+>   :value: 'false'
+>   :created_at: 2015-04-08 05:37:48.000000000 Z
+>   :updated_at: 2015-04-08 05:37:48.000000000 Z
+> :boot_volume_id: vol-2zlab2pu
+> :encrypted_password:
+> ```
+
+`:state:`が`running`になってる事を確認します。
 
 #### 後処理
 
