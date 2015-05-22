@@ -1975,14 +1975,14 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --display-name vdc-instance \
+ --display-name web-a \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name web-a --vifs vifs.json
 > ---
 > :id: i-zticoe9h
 > :account_id: a-shpoolxx
@@ -2007,7 +2007,7 @@ $ mussel instance create \
 > :hostname: zticoe9h
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: vdc-instance
+> :display_name: web-a
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2067,7 +2067,7 @@ $ mussel instance show i-zticoe9h
 > :hostname: zticoe9h
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: vdc-instance
+> :display_name: web-a
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2142,14 +2142,14 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
- --display-name vdc-instance \
+ --display-name web-b \
  --vifs=vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name web-b --vifs vifs.json
 > ---
 > :id: i-c07ips1b
 > :account_id: a-shpoolxx
@@ -2174,7 +2174,7 @@ $ mussel instance create \
 > :hostname: c07ips1b
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: vdc-instance
+> :display_name: web-b
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2234,7 +2234,7 @@ $ mussel instance show i-c07ips1b
 > :hostname: c07ips1b
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: vdc-instance
+> :display_name: web-b
 > :service_type: std
 > :monitoring:
 >   :enabled: false
