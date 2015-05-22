@@ -788,6 +788,7 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
@@ -800,7 +801,7 @@ $ mussel instance create \
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-31zmj9fr
 > :account_id: a-shpoolxx
@@ -825,7 +826,7 @@ $ mussel instance create \
 > :hostname: 31zmj9fr
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -891,7 +892,7 @@ $ mussel instance show i-31zmj9fr
 > :hostname: 31zmj9fr
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -985,13 +986,14 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-3dyfffr2
 > :account_id: a-shpoolxx
@@ -1016,7 +1018,7 @@ $ mussel instance create \
 > :hostname: 3dyfffr2
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1076,7 +1078,7 @@ $ mussel instance show i-3dyfffr2
 > :hostname: 3dyfffr2
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1154,7 +1156,7 @@ $ mussel instance show i-3dyfffr2
 > :hostname: 3dyfffr2
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1232,7 +1234,7 @@ $ mussel instance show i-3dyfffr2
 > :hostname: 3dyfffr2
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1288,13 +1290,14 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-0yuzzyd7
 > :account_id: a-shpoolxx
@@ -1319,7 +1322,7 @@ $ mussel instance create \
 > :hostname: 0yuzzyd7
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1379,7 +1382,7 @@ $ mussel instance show i-0yuzzyd7
 > :hostname: 0yuzzyd7
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1455,7 +1458,7 @@ $ mussel instance show i-0yuzzyd7
 > :hostname: 0yuzzyd7
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1590,13 +1593,14 @@ $ mussel instance create \
  --image-id wmi-4yalh576 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-hbkkrmkb
 > :account_id: a-shpoolxx
@@ -1621,7 +1625,7 @@ $ mussel instance create \
 > :hostname: hbkkrmkb
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1681,7 +1685,7 @@ $ mussel instance show i-hbkkrmkb
 > :hostname: hbkkrmkb
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1971,13 +1975,14 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-zticoe9h
 > :account_id: a-shpoolxx
@@ -2002,7 +2007,7 @@ $ mussel instance create \
 > :hostname: zticoe9h
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2062,7 +2067,7 @@ $ mussel instance show i-zticoe9h
 > :hostname: zticoe9h
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2137,13 +2142,14 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs=vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-c07ips1b
 > :account_id: a-shpoolxx
@@ -2168,7 +2174,7 @@ $ mussel instance create \
 > :hostname: c07ips1b
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2228,7 +2234,7 @@ $ mussel instance show i-c07ips1b
 > :hostname: c07ips1b
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
