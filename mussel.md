@@ -1766,7 +1766,8 @@ $ mussel load_balancer create \
  --instance-protocol http \
  --max-connection 1000 \
  --port 80 \
- --protocol http
+ --protocol http \
+ --display-name lb80
 ```
 
 パラメタの内容は、以下の通りです。一般的なHTTP用のロードバランサーを作成します。
@@ -1782,7 +1783,7 @@ $ mussel load_balancer create \
 実行結果例：
 
 > ```
-> $ mussel load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http
+> $ mussel load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http --display-name lb80
 > ---
 > :id: lb-z3261dc9
 > :uuid: lb-z3261dc9
@@ -1798,7 +1799,7 @@ $ mussel load_balancer create \
 > :created_at: 2015-04-08 07:12:31.000000000 Z
 > :updated_at: 2015-04-08 07:12:31.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -1840,7 +1841,7 @@ $ mussel load_balancer show lb-z3261dc9
 > :created_at: 2015-04-08 07:12:31.000000000 Z
 > :updated_at: 2015-04-08 07:12:31.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2331,7 +2332,7 @@ $ mussel load_balancer create \
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2369,7 +2370,7 @@ $ mussel load_balancer show lb-wk919s67
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2458,7 +2459,7 @@ $ mussel load_balancer register lb-474byn9f --vifs vif-ccrwjrmv
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2508,7 +2509,7 @@ $ mussel load_balancer register lb-474byn9f --vifs vif-q1uzm9za
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2562,7 +2563,7 @@ $ mussel load_balancer show lb-wk919s67
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2656,7 +2657,7 @@ $ mussel load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2714,7 +2715,7 @@ $ mussel load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2768,7 +2769,7 @@ $ mussel load_balancer show lb-wk919s67
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
