@@ -43,7 +43,7 @@ $ mussel instance create \
 
 curl版とmussel版を比較すると、どうでしょうか？mussel版では「Wakame-vdcインスタンスを作成する」為の命令・パラメタだけが、顔を覗かせています。ユーザーはHTTPの手続きを気にする事なく、Wakame-vdcのリソース操作に注力出来ます。
 
-musselによる快適かつ直観的なWakame-vdcリソース操作をお楽しみ下さい。
+musselによる快適かつ直感的なWakame-vdcリソース操作をお楽しみ下さい。
 
 # musselのインストール方法
 
