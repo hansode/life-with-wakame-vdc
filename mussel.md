@@ -512,13 +512,13 @@ tcp:80,80,ip4:0.0.0.0/0
 作成したルールファイルを基に、セキュリティグループを登録します。
 
 ```
-$ mussel security_group create --rule sgrule.txt
+$ mussel security_group create --rule sgrule.txt --display-name sgrule
 ```
 
 実行結果例：
 
 > ```
-> $ mussel security_group create --rule sgrule.txt
+> $ mussel security_group create --rule sgrule.txt --display-name sgrule
 > ---
 > :id: sg-nhrd602s
 > :account_id: a-shpoolxx
@@ -531,7 +531,7 @@ $ mussel security_group create --rule sgrule.txt
 >   tcp:22,22,ip4:0.0.0.0/0
 >   tcp:80,80,ip4:0.0.0.0/0
 > :service_type: std
-> :display_name: ''
+> :display_name: sgrule
 > :labels: []
 > :rules:
 > - :ip_protocol: icmp
@@ -577,7 +577,7 @@ $ mussel security_group show sg-nhrd602s
 >   tcp:22,22,ip4:0.0.0.0/0
 >   tcp:80,80,ip4:0.0.0.0/0
 > :service_type: std
-> :display_name: ''
+> :display_name: sgrule
 > :labels: []
 > :rules:
 > - :ip_protocol: icmp
