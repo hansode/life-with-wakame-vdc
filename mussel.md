@@ -426,13 +426,13 @@ APIに登録するのは、公開鍵です。秘密鍵は、インスタンス�
 公開鍵`mykeypair.pub`をAPIに登録します。
 
 ```
-$ mussel ssh_key_pair create --public-key mykeypair.pub
+$ mussel ssh_key_pair create --public-key mykeypair.pub --display-name mykeypair
 ```
 
 実行結果例：
 
 > ```
-> $ mussel ssh_key_pair create --public-key mykeypair.pub
+> $ mussel ssh_key_pair create --public-key mykeypair.pub --display-name mykeypair
 > ---
 > :id: ssh-ruekc3bs
 > :account_id: a-shpoolxx
@@ -444,7 +444,7 @@ $ mussel ssh_key_pair create --public-key mykeypair.pub
 > :created_at: 2015-04-08 05:23:12.000000000 Z
 > :updated_at: 2015-04-08 05:23:12.000000000 Z
 > :service_type: std
-> :display_name: ''
+> :display_name: mykeypair
 > :deleted_at:
 > :labels: []
 > ```
@@ -474,7 +474,7 @@ $ mussel ssh_key_pair show ssh-ruekc3bs
 > :created_at: 2015-04-08 05:23:12.000000000 Z
 > :updated_at: 2015-04-08 05:23:12.000000000 Z
 > :service_type: std
-> :display_name: ''
+> :display_name: mykeypair
 > :deleted_at:
 > :labels: []
 > ```
