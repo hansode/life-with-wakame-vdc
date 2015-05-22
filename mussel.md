@@ -426,13 +426,13 @@ APIに登録するのは、公開鍵です。秘密鍵は、インスタンス�
 公開鍵`mykeypair.pub`をAPIに登録します。
 
 ```
-$ mussel ssh_key_pair create --public-key mykeypair.pub
+$ mussel ssh_key_pair create --public-key mykeypair.pub --display-name mykeypair
 ```
 
 実行結果例：
 
 > ```
-> $ mussel ssh_key_pair create --public-key mykeypair.pub
+> $ mussel ssh_key_pair create --public-key mykeypair.pub --display-name mykeypair
 > ---
 > :id: ssh-ruekc3bs
 > :account_id: a-shpoolxx
@@ -444,7 +444,7 @@ $ mussel ssh_key_pair create --public-key mykeypair.pub
 > :created_at: 2015-04-08 05:23:12.000000000 Z
 > :updated_at: 2015-04-08 05:23:12.000000000 Z
 > :service_type: std
-> :display_name: ''
+> :display_name: mykeypair
 > :deleted_at:
 > :labels: []
 > ```
@@ -474,7 +474,7 @@ $ mussel ssh_key_pair show ssh-ruekc3bs
 > :created_at: 2015-04-08 05:23:12.000000000 Z
 > :updated_at: 2015-04-08 05:23:12.000000000 Z
 > :service_type: std
-> :display_name: ''
+> :display_name: mykeypair
 > :deleted_at:
 > :labels: []
 > ```
@@ -512,13 +512,13 @@ tcp:80,80,ip4:0.0.0.0/0
 作成したルールファイルを基に、セキュリティグループを登録します。
 
 ```
-$ mussel security_group create --rule sgrule.txt
+$ mussel security_group create --rule sgrule.txt --display-name sgrule
 ```
 
 実行結果例：
 
 > ```
-> $ mussel security_group create --rule sgrule.txt
+> $ mussel security_group create --rule sgrule.txt --display-name sgrule
 > ---
 > :id: sg-nhrd602s
 > :account_id: a-shpoolxx
@@ -531,7 +531,7 @@ $ mussel security_group create --rule sgrule.txt
 >   tcp:22,22,ip4:0.0.0.0/0
 >   tcp:80,80,ip4:0.0.0.0/0
 > :service_type: std
-> :display_name: ''
+> :display_name: sgrule
 > :labels: []
 > :rules:
 > - :ip_protocol: icmp
@@ -577,7 +577,7 @@ $ mussel security_group show sg-nhrd602s
 >   tcp:22,22,ip4:0.0.0.0/0
 >   tcp:80,80,ip4:0.0.0.0/0
 > :service_type: std
-> :display_name: ''
+> :display_name: sgrule
 > :labels: []
 > :rules:
 > - :ip_protocol: icmp
@@ -788,6 +788,7 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
@@ -800,7 +801,7 @@ $ mussel instance create \
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-31zmj9fr
 > :account_id: a-shpoolxx
@@ -817,7 +818,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-iednolgh
 >   :state: scheduling
@@ -825,7 +826,7 @@ $ mussel instance create \
 > :hostname: 31zmj9fr
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -876,7 +877,7 @@ $ mussel instance show i-31zmj9fr
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-iednolgh
 >   :state: attached
@@ -891,7 +892,7 @@ $ mussel instance show i-31zmj9fr
 > :hostname: 31zmj9fr
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -985,13 +986,14 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-3dyfffr2
 > :account_id: a-shpoolxx
@@ -1008,7 +1010,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2zlab2pu
 >   :state: scheduling
@@ -1016,7 +1018,7 @@ $ mussel instance create \
 > :hostname: 3dyfffr2
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1061,7 +1063,7 @@ $ mussel instance show i-3dyfffr2
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2zlab2pu
 >   :state: attached
@@ -1076,7 +1078,7 @@ $ mussel instance show i-3dyfffr2
 > :hostname: 3dyfffr2
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1113,9 +1115,67 @@ $ mussel instance poweroff i-3dyfffr2
 > :instance_id: i-3dyfffr2
 > ```
 
-成功すると、uuidが表示されます。
+##### 2: poweroff後のインスタンスの状態を確認
 
-##### 2: インスタンスのpoweron
+```
+$ mussel instance show i-3dyfffr2
+```
+
+実行結果例：
+
+> ```
+> $ mussel instance show i-3dyfffr2
+> ---
+> :id: i-3dyfffr2
+> :account_id: a-shpoolxx
+> :host_node: hn-1box64
+> :cpu_cores: 1
+> :memory_size: 256
+> :arch: x86_64
+> :image_id: wmi-centos1d64
+> :created_at: 2015-04-08 05:37:48.000000000 Z
+> :updated_at: 2015-04-08 05:38:25.000000000 Z
+> :terminated_at:
+> :deleted_at:
+> :state: halted
+> :status: online
+> :ssh_key_pair:
+>   :uuid: ssh-ruekc3bs
+>   :display_name: mykeypair
+> :volume:
+> - :vol_id: vol-2zlab2pu
+>   :state: attached
+> :vif:
+> - :vif_id: vif-fnh7qx5g
+>   :network_id: nw-demo1
+>   :ipv4:
+>     :address: 10.0.2.100
+>     :nat_address:
+>   :security_groups:
+>   - sg-nhrd602s
+> :hostname: 3dyfffr2
+> :ha_enabled: 0
+> :hypervisor: openvz
+> :display_name: vdc-instance
+> :service_type: std
+> :monitoring:
+>   :enabled: false
+>   :mail_address: []
+>   :items: {}
+> :labels:
+> - :resource_uuid: i-3dyfffr2
+>   :name: monitoring.enabled
+>   :value_type: 1
+>   :value: 'false'
+>   :created_at: 2015-04-08 05:37:48.000000000 Z
+>   :updated_at: 2015-04-08 05:37:48.000000000 Z
+> :boot_volume_id: vol-2zlab2pu
+> :encrypted_password:
+> ```
+
+`:state:`が`halted`になってる事を確認します。poweronする為の前提条件です。
+
+##### 3: インスタンスのpoweron
 
 uuidを指定して実行します。
 
@@ -1132,6 +1192,66 @@ $ mussel instance poweron i-3dyfffr2
 > ```
 
 成功すると、uuidが表示されます。
+
+##### 4: poweron後のインスタンスの状態を確認
+
+```
+$ mussel instance show i-3dyfffr2
+```
+
+実行結果例：
+
+> ```
+> $ mussel instance show i-3dyfffr2
+> ---
+> :id: i-3dyfffr2
+> :account_id: a-shpoolxx
+> :host_node: hn-1box64
+> :cpu_cores: 1
+> :memory_size: 256
+> :arch: x86_64
+> :image_id: wmi-centos1d64
+> :created_at: 2015-04-08 05:37:48.000000000 Z
+> :updated_at: 2015-04-08 05:38:52.000000000 Z
+> :terminated_at:
+> :deleted_at:
+> :state: running
+> :status: online
+> :ssh_key_pair:
+>   :uuid: ssh-ruekc3bs
+>   :display_name: mykeypair
+> :volume:
+> - :vol_id: vol-2zlab2pu
+>   :state: attached
+> :vif:
+> - :vif_id: vif-fnh7qx5g
+>   :network_id: nw-demo1
+>   :ipv4:
+>     :address: 10.0.2.100
+>     :nat_address:
+>   :security_groups:
+>   - sg-nhrd602s
+> :hostname: 3dyfffr2
+> :ha_enabled: 0
+> :hypervisor: openvz
+> :display_name: vdc-instance
+> :service_type: std
+> :monitoring:
+>   :enabled: false
+>   :mail_address: []
+>   :items: {}
+> :labels:
+> - :resource_uuid: i-3dyfffr2
+>   :name: monitoring.enabled
+>   :value_type: 1
+>   :value: 'false'
+>   :created_at: 2015-04-08 05:37:48.000000000 Z
+>   :updated_at: 2015-04-08 05:37:48.000000000 Z
+> :boot_volume_id: vol-2zlab2pu
+> :encrypted_password:
+> ```
+
+`:state:`が`running`になってる事を確認します。
 
 #### 後処理
 
@@ -1170,13 +1290,14 @@ $ mussel instance create \
  --image-id wmi-centos1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-centos1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-0yuzzyd7
 > :account_id: a-shpoolxx
@@ -1193,7 +1314,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-smguw2al
 >   :state: scheduling
@@ -1201,7 +1322,7 @@ $ mussel instance create \
 > :hostname: 0yuzzyd7
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1246,7 +1367,7 @@ $ mussel instance show i-0yuzzyd7
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-smguw2al
 >   :state: attached
@@ -1261,7 +1382,7 @@ $ mussel instance show i-0yuzzyd7
 > :hostname: 0yuzzyd7
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1322,7 +1443,7 @@ $ mussel instance show i-0yuzzyd7
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-smguw2al
 >   :state: attached
@@ -1337,7 +1458,7 @@ $ mussel instance show i-0yuzzyd7
 > :hostname: 0yuzzyd7
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1472,13 +1593,14 @@ $ mussel instance create \
  --image-id wmi-4yalh576 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name vdc-instance \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-4yalh576 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name vdc-instance --vifs vifs.json
 > ---
 > :id: i-hbkkrmkb
 > :account_id: a-shpoolxx
@@ -1495,7 +1617,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-ja0kj1f0
 >   :state: scheduling
@@ -1503,7 +1625,7 @@ $ mussel instance create \
 > :hostname: hbkkrmkb
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1548,7 +1670,7 @@ $ mussel instance show i-hbkkrmkb
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-ja0kj1f0
 >   :state: attached
@@ -1563,7 +1685,7 @@ $ mussel instance show i-hbkkrmkb
 > :hostname: hbkkrmkb
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: vdc-instance
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1644,7 +1766,8 @@ $ mussel load_balancer create \
  --instance-protocol http \
  --max-connection 1000 \
  --port 80 \
- --protocol http
+ --protocol http \
+ --display-name lb80
 ```
 
 パラメタの内容は、以下の通りです。一般的なHTTP用のロードバランサーを作成します。
@@ -1660,7 +1783,7 @@ $ mussel load_balancer create \
 実行結果例：
 
 > ```
-> $ mussel load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http
+> $ mussel load_balancer create --balance-algorithm leastconn --engine haproxy --instance-port 80 --instance-protocol http --max-connection 1000 --port 80 --protocol http --display-name lb80
 > ---
 > :id: lb-z3261dc9
 > :uuid: lb-z3261dc9
@@ -1676,7 +1799,7 @@ $ mussel load_balancer create \
 > :created_at: 2015-04-08 07:12:31.000000000 Z
 > :updated_at: 2015-04-08 07:12:31.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -1718,7 +1841,7 @@ $ mussel load_balancer show lb-z3261dc9
 > :created_at: 2015-04-08 07:12:31.000000000 Z
 > :updated_at: 2015-04-08 07:12:31.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -1853,13 +1976,14 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name web-a \
  --vifs vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name web-a --vifs vifs.json
 > ---
 > :id: i-zticoe9h
 > :account_id: a-shpoolxx
@@ -1876,7 +2000,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2aqmitnv
 >   :state: scheduling
@@ -1884,7 +2008,7 @@ $ mussel instance create \
 > :hostname: zticoe9h
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: web-a
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -1929,7 +2053,7 @@ $ mussel instance show i-zticoe9h
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-2aqmitnv
 >   :state: attached
@@ -1944,7 +2068,7 @@ $ mussel instance show i-zticoe9h
 > :hostname: zticoe9h
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: web-a
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2019,13 +2143,14 @@ $ mussel instance create \
  --image-id wmi-lbnode1d64 \
  --memory-size 256 \
  --ssh-key-id ssh-ruekc3bs \
+ --display-name web-b \
  --vifs=vifs.json
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --vifs vifs.json
+> $ mussel instance create --hypervisor openvz --cpu-cores 1 --image-id wmi-lbnode1d64 --memory-size 256 --ssh-key-id ssh-ruekc3bs --display-name web-b --vifs vifs.json
 > ---
 > :id: i-c07ips1b
 > :account_id: a-shpoolxx
@@ -2042,7 +2167,7 @@ $ mussel instance create \
 > :status: init
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-kacvvihj
 >   :state: scheduling
@@ -2050,7 +2175,7 @@ $ mussel instance create \
 > :hostname: c07ips1b
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: web-b
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2095,7 +2220,7 @@ $ mussel instance show i-c07ips1b
 > :status: online
 > :ssh_key_pair:
 >   :uuid: ssh-ruekc3bs
->   :display_name: ''
+>   :display_name: mykeypair
 > :volume:
 > - :vol_id: vol-kacvvihj
 >   :state: attached
@@ -2110,7 +2235,7 @@ $ mussel instance show i-c07ips1b
 > :hostname: c07ips1b
 > :ha_enabled: 0
 > :hypervisor: openvz
-> :display_name: ''
+> :display_name: web-b
 > :service_type: std
 > :monitoring:
 >   :enabled: false
@@ -2207,7 +2332,7 @@ $ mussel load_balancer create \
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2245,7 +2370,7 @@ $ mussel load_balancer show lb-wk919s67
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2334,7 +2459,7 @@ $ mussel load_balancer register lb-474byn9f --vifs vif-ccrwjrmv
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2384,7 +2509,7 @@ $ mussel load_balancer register lb-474byn9f --vifs vif-q1uzm9za
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2438,7 +2563,7 @@ $ mussel load_balancer show lb-wk919s67
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2532,7 +2657,7 @@ $ mussel load_balancer unregister lb-wk919s67 --vifs vif-ccrwjrmv
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2590,7 +2715,7 @@ $ mussel load_balancer unregister lb-wk919s67 --vifs vif-q1uzm9za
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
@@ -2644,7 +2769,7 @@ $ mussel load_balancer show lb-wk919s67
 > :created_at: 2015-04-08 09:57:00.000000000 Z
 > :updated_at: 2015-04-08 09:57:00.000000000 Z
 > :deleted_at:
-> :display_name:
+> :display_name: lb80
 > :allow_list:
 > - 0.0.0.0
 > :httpchk_path: ''
