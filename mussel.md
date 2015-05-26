@@ -1,7 +1,5 @@
 # Mussel: Wakame-vdc API Client
 
-[TOC]
-
 # はじめに
 
 本書では、musselを通じてWakame-vdcの基本的なAPI呼び出しを中心に、インスタンスとロードバランサに関する基本的で実践的な操作を体験出来ます。
@@ -1404,13 +1402,13 @@ $ mussel instance show i-0yuzzyd7
 ##### 3: インスタンスのpoweroff
 
 ```
-$ mussel instance poweroff i-0yuzzyd7
+$ mussel instance poweroff i-0yuzzyd7 --force false
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance poweroff i-0yuzzyd7
+> $ mussel instance poweroff i-0yuzzyd7 --force false
 > ---
 > :instance_id: i-0yuzzyd7
 > ```
