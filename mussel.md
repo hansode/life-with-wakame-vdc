@@ -1113,6 +1113,8 @@ $ mussel instance poweroff i-3dyfffr2
 > :instance_id: i-3dyfffr2
 > ```
 
+成功すると、uuidが表示されます。
+
 ##### 2: poweroff後のインスタンスの状態を確認
 
 ```
