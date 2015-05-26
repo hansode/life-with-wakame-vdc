@@ -1,7 +1,5 @@
 # Mussel: Wakame-vdc API Client
 
-[TOC]
-
 # はじめに
 
 本書では、musselを通じてWakame-vdcの基本的なAPI呼び出しを中心に、インスタンスとロードバランサに関する基本的で実践的な操作を体験出来ます。
