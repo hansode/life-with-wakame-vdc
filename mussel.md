@@ -1490,13 +1490,13 @@ $ mussel instance show i-0yuzzyd7
 uuidを指定して実行します。
 
 ```
-$ mussel instance backup i-0yuzzyd7
+$ mussel instance backup i-0yuzzyd7 --display-name backup:i-0yuzzyd7
 ```
 
 実行結果例：
 
 > ```
-> $ mussel instance backup i-0yuzzyd7
+> $ mussel instance backup i-0yuzzyd7 --display-name backup:i-0yuzzyd7
 > ---
 > :instance_id: i-0yuzzyd7
 > :image_id: wmi-4yalh576
@@ -1537,7 +1537,7 @@ $ mussel image show wmi-4yalh576
 > :instance_model_name: ''
 > :parent_image_id: wmi-centos1d64
 > :service_type: std
-> :display_name: centos1d64
+> :display_name: backup:i-0yuzzyd7
 > :backup_object_id: bo-3bm4h97t
 > :deleted_at:
 > :volumes: []
@@ -1577,7 +1577,7 @@ $ mussel image show wmi-4yalh576
 > :instance_model_name: ''
 > :parent_image_id: wmi-centos1d64
 > :service_type: std
-> :display_name: centos1d64
+> :display_name: backup:i-0yuzzyd7
 > :backup_object_id: bo-3bm4h97t
 > :deleted_at:
 > :volumes: []
