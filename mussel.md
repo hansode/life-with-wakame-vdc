@@ -331,6 +331,8 @@ musselは実行時に、設定ファイル`~/.musselrc`を読み込む仕組み�
 $ vi ~/.musselrc
 ```
 
+反映内容：
+
 ```
 DCMGR_HOST=127.0.0.1
 account_id=a-shpoolxx
@@ -490,6 +492,8 @@ APIにルールを登録する為に、ルールファイルを作成します�
 ```
 $ vi sgrule.txt
 ```
+
+反映内容：
 
 ```
 icmp:-1,-1,ip4:0.0.0.0/0
@@ -736,6 +740,8 @@ JSON形式で定義します。
 ```
 $ vi vifs.json
 ```
+
+反映内容：
 
 ```
 {
@@ -1112,6 +1118,8 @@ $ mussel instance poweroff i-3dyfffr2
 > ---
 > :instance_id: i-3dyfffr2
 > ```
+
+成功すると、uuidが表示されます。
 
 ##### 2: poweroff後のインスタンスの状態を確認
 
