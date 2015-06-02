@@ -57,3 +57,36 @@
 + `dcmgr/lib/dcmgr/endpoints/12.03/text_logs.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/volume_snapshots.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/volumes.rb`
+
+##### /instances
+
+##### Dcmgr.messaging.submit
+
++ scheduler
+   + schedule_instance
+   + schedule_start_instance
++ hva-handle.
+   + terminate
+   + reboot
+   + stop
+   + poweron
+   + poweroff
+   + soft_poweroff
++ local-store-handle.
+   + backup_volume
+   + backup_image
++ migration-handle.
+   + run_vol_store
++ sta-handle.
+   + backup_volume
+   + backup_image
+
+##### Dcmgr.messaging.event_publish
+
++ vnic_joined
++ vnic_left
++ joined_group
++ left_group
++ referencer_added
++ referencer_removed
++ instance.monitoring.refreshed
