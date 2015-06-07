@@ -86,6 +86,7 @@
    + job.submit "migration-handle.#{@inst[:host_node][:node_id]}", "start_migration"
 + `dcmgr/lib/dcmgr/rpc/windows_handler.rb`
    + job :launch_windows
+      + rpc.request 'hva-collector' 'update_instance'
 
 ### drivers/hypervisor
 
