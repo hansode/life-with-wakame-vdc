@@ -19,7 +19,9 @@
 
 + Isono::NodeModules::NodeHeartbeat
 + `dcmgr/lib/dcmgr/node_modules/instance_monitor.rb`
-   + check_instance
+   + initialize_hook
+      + check_instance
+   + job.submit "hva-handle.#{@node.node_id}", "terminate"
 + `dcmgr/lib/dcmgr/node_modules/alarm_config_updater.rb`
    + update_alarm
    + delete_alarm
@@ -67,15 +69,21 @@
    + job :stop
    + job :terminate
    + job :wait_volumes_available
+   + job.submit "hva-handle.#{@node.node_id}", 'run_local_store'
+   + job.submit "hva-handle.#{@node.node_id}", 'run_vol_store'
+   + job.submit ""windows-handle.#{@node.node_id}", "launch_windows"
 + `dcmgr/lib/dcmgr/rpc/local_store_handler.rb`
    + job :backup_image
    + job :backup_volume
    + job :delete_volume
    + job :deploy_volume_and_attach
    + job :run_local_store
+   + job.submit "hva-handle.#{@node.node_id}", 'attach_volume'
+   + job.submit "hva-handle.#{@node.node_id}", 'run_local_store'
 + `dcmgr/lib/dcmgr/rpc/migration_handler.rb`
    + job :run_vol_store
    + job :start_migration
+   + job.submit "migration-handle.#{@inst[:host_node][:node_id]}", "start_migration"
 + `dcmgr/lib/dcmgr/rpc/windows_handler.rb`
    + job :launch_windows
 
