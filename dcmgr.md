@@ -35,6 +35,9 @@
 
 + `dcmgr/lib/dcmgr/endpoints/12.03/accounts.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/alarms.rb`
+   + Dcmgr.messaging.submit(alarm_endpoint(alarm.metric_name, i.host_node.node_id), 'update_alarm'
+   + Dcmgr.messaging.submit(alarm_endpoint(al.metric_name, i.host_node.node_id), 'delete_alarm'
+   + Dcmgr.messaging.submit(alarm_endpoint(al.metric_name, i.host_node.node_id), 'update_alarm'
 + `dcmgr/lib/dcmgr/endpoints/12.03/backup_objects.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/backup_storages.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/dc_networks.rb`
@@ -49,6 +52,20 @@
    + Dcmgr.messaging.event_publish "#{vnic.canonical_uuid}/joined_group"
    + Dcmgr.messaging.event_publish "#{vnic.canonical_uuid}/left_group"
    + Dcmgr.messaging.event_publish "instance.monitoring.refreshed"
+   + Dcmgr.messaging.submit "hva-handle.#{i.host_node.node_id}", 'reboot'
+   + Dcmgr.messaging.submit "hva-handle.#{i.host_node.node_id}", 'stop'
+   + Dcmgr.messaging.submit "hva-handle.#{i.host_node.node_id}", 'terminate'
+   + Dcmgr.messaging.submit "hva-handle.#{instance.host_node.node_id}", 'poweroff'
+   + Dcmgr.messaging.submit "hva-handle.#{instance.host_node.node_id}", 'soft_poweroff'
+   + Dcmgr.messaging.submit "hva-handle.#{instance.host_node.node_id}", 'poweron',
+   + Dcmgr.messaging.submit "local-store-handle.#{@instance.host_node.node_id}", 'backup_volume'
+   + Dcmgr.messaging.submit "local-store-handle.#{instance.host_node.node_id}", 'backup_image'
+   + Dcmgr.messaging.submit "migration-handle.#{dest_host_node.node_id}", 'run_vol_store'
+   + Dcmgr.messaging.submit "scheduler", 'schedule_instance'
+   + Dcmgr.messaging.submit "scheduler", 'schedule_start_instance'
+   + Dcmgr.messaging.submit "sta-handle.#{@volume.volume_device.storage_node.node_id}", 'backup_volume'
+   + Dcmgr.messaging.submit "sta-handle.#{volume.storage_node.node_id}", 'backup_image'
+   + Dcmgr.messaging.submit "sta-handle.#{volume.storage_node.node_id}", 'backup_volume'
 + `dcmgr/lib/dcmgr/endpoints/12.03/ip_handles.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/ip_pools.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/jobs.rb`
@@ -67,6 +84,8 @@
    + Dcmgr.messaging.event_publish "vif.monitoring.updated"
 + `dcmgr/lib/dcmgr/endpoints/12.03/networks.rb`
    + Dcmgr.messaging.event_publish "vnet/network_services"
+   + Dcmgr.messaging.submit "hva-handle.#{instance.host_node.node_id}", 'attach_nic'
+   + Dcmgr.messaging.submit "hva-handle.#{instance.host_node.node_id}", 'detach_nic'
 + `dcmgr/lib/dcmgr/endpoints/12.03/reports.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/security_groups.rb`
    + Dcmgr.messaging.event_publish "#{g.canonical_uuid}/rules_updated"
@@ -78,7 +97,16 @@
 + `dcmgr/lib/dcmgr/endpoints/12.03/storage_nodes.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/text_logs.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/volume_snapshots.rb`
+   + Dcmgr.messaging.submit "sta-handle.#{sp.node_id}", 'create_snapshot'
+   + Dcmgr.messaging.submit "sta-handle.#{sp.node_id}", 'delete_snapshot'
 + `dcmgr/lib/dcmgr/endpoints/12.03/volumes.rb`
+   + Dcmgr.messaging.submit "hva-handle.#{i.host_node.node_id}", 'attach'
+   + Dcmgr.messaging.submit "hva-handle.#{i.host_node.node_id}", 'detach'
+   + Dcmgr.messaging.submit "local-store-handle.#{instance.host_node.node_id}", 'backup_volume',
+   + Dcmgr.messaging.submit "scheduler", 'schedule_volume'
+   + Dcmgr.messaging.submit "sta-handle.#{@volume.volume_device.storage_node.node_id}", 'backup_volume'
+   + Dcmgr.messaging.submit "sta-handle.#{vol.storage_node.node_id}", 'create_volume'
+   + Dcmgr.messaging.submit "sta-handle.#{vol.storage_node.node_id}", 'delete_volume'
 
 ##### /instances
 
