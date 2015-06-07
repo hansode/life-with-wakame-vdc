@@ -18,12 +18,16 @@
 ### node_modules (collector)
 
 + `dcmgr/lib/dcmgr/node_modules/alarm_collector.rb`
+   + initialize_hook
+      + rpc.register_endpoint 'alarm-collector'
    + event.subscribe 'hva/instance_terminated'
    + event.subscribe 'hva/instance_terminated'
    + event.subscribe 'hva/instance_turnedoff'
    + event.subscribe 'hva/instance_started'
    + event.subscribe 'hva/instance_turnedon'
 + `dcmgr/lib/dcmgr/node_modules/hva_collector.rb`
+   + initialize_hook
+      + rpc.register_endpoint 'hva-collector'
    + rpc 'finalize_instance'
    + rpc 'get_dhcp_conf'
    + rpc 'get_external_monitor_target_host_nodes'
@@ -52,11 +56,17 @@
    + job.submit "local-store-handle.#{v.volume_device.host_node.node_id}", 'delete_volume'
    + job.submit "sta-handle.#{v.volume_device.storage_node.node_id}", 'delete_volume'
 + `dcmgr/lib/dcmgr/node_modules/natbox_collector.rb`
+   + initialize_hook
+      + rpc.register_endpoint 'natbox-collector'
    + rpc 'get_alive_network_routes'
    + rpc 'get_network_route'
 + `dcmgr/lib/dcmgr/node_modules/resource_collector.rb`
+   + initialize_hook
+      + rpc.register_endpoint 'resource-collector'
    + rpc 'resource_store'
 + `dcmgr/lib/dcmgr/node_modules/sta_collector.rb`
+   + initialize_hook
+      + rpc.register_endpoint 'sta-collector'
    + rpc 'get_available_volumes'
    + rpc 'get_backup_object'
    + rpc 'get_image'
@@ -90,6 +100,8 @@
    + event.subscribe 'unregister_instance'
    + event.subscribe 'update_load_balancer'
 + `dcmgr/lib/dcmgr/node_modules/job_queue_proxy.rb`
+   + initialize_hook
+      + rpc.register_endpoint 'jobqueue-proxy'
    + event.subscribe 'submit'
    + event.subscribe 'pop'
    + event.subscribe 'cancel'
