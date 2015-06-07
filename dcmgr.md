@@ -42,15 +42,37 @@
 + `dcmgr/lib/dcmgr/endpoints/12.03/host_nodes.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/images.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/instances.rb`
+   + Dcmgr.messaging.event_publish "#{group.canonical_uuid}/vnic_joined"
+   + Dcmgr.messaging.event_publish "#{group.canonical_uuid}/vnic_left"
+   + Dcmgr.messaging.event_publish "#{ref_sg.canonical_uuid}/referencer_added"
+   + Dcmgr.messaging.event_publish "#{ref_sg.canonical_uuid}/referencer_removed"
+   + Dcmgr.messaging.event_publish "#{vnic.canonical_uuid}/joined_group"
+   + Dcmgr.messaging.event_publish "#{vnic.canonical_uuid}/left_group"
+   + Dcmgr.messaging.event_publish "instance.monitoring.refreshed"
 + `dcmgr/lib/dcmgr/endpoints/12.03/ip_handles.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/ip_pools.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/jobs.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/load_balancers.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/network_groups.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/network_vifs.rb`
+   + Dcmgr.messaging.event_publish "#{group.canonical_uuid}/vnic_joined"
+   + Dcmgr.messaging.event_publish "#{group.canonical_uuid}/vnic_left"
+   + Dcmgr.messaging.event_publish "#{ref_sg.canonical_uuid}/referencer_added"
+   + Dcmgr.messaging.event_publish "#{ref_sg.canonical_uuid}/referencer_removed"
+   + Dcmgr.messaging.event_publish "#{vnic.canonical_uuid}/joined_group"
+   + Dcmgr.messaging.event_publish "#{vnic.canonical_uuid}/left_group"
+   + Dcmgr.messaging.event_publish "instance.monitoring.refreshed"
+   + Dcmgr.messaging.event_publish "vif.monitoring.created"
+   + Dcmgr.messaging.event_publish "vif.monitoring.deleted"
+   + Dcmgr.messaging.event_publish "vif.monitoring.updated"
 + `dcmgr/lib/dcmgr/endpoints/12.03/networks.rb`
+   + Dcmgr.messaging.event_publish "vnet/network_services"
 + `dcmgr/lib/dcmgr/endpoints/12.03/reports.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/security_groups.rb`
+   + Dcmgr.messaging.event_publish "#{g.canonical_uuid}/rules_updated"
+   + Dcmgr.messaging.event_publish "#{ref.canonical_uuid}/referencer_added"
+   + Dcmgr.messaging.event_publish "#{ref.canonical_uuid}/referencer_removed"
+   + Dcmgr.messaging.event_publish 'hva/security_group_updated'
 + `dcmgr/lib/dcmgr/endpoints/12.03/ssh_key_pairs.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/storage_node_groups.rb`
 + `dcmgr/lib/dcmgr/endpoints/12.03/storage_nodes.rb`
